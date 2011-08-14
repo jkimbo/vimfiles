@@ -1,3 +1,6 @@
 # Ignore views
 view/
 
+# Ignore backup
+backup/
+
