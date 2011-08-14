@@ -348,6 +348,10 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
     let g:miniBufExplMapCTabSwitchBufs = 1
     let g:miniBufExplUseSingleClick = 1
 " }
+
+" Yankring {
+    nnoremap <silent> <F10> :YRShow<CR> 
+"}
 """"""""""""""""""""""""""""""
 " Printing
 """""""""""""""""""""""""
