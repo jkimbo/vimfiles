@@ -116,7 +116,7 @@ set wmh=0                                                   " window minimum hei
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 """ Folding
-set foldcolumn=1
+set foldcolumn=1                                            " set width of folding column (appears on left side of ruler)
 
 au Filetype c,cpp,css,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
 au Filetype prolog setlocal foldcolumn=3
