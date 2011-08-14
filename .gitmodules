@@ -1,16 +1,15 @@
-[submodule "vim/bundle/checksyntax_vim"]
-	path = vim/bundle/checksyntax_vim
+[submodule "bundle/checksyntax_vim"]
+	path = bundle/checksyntax_vim
 	url = https://github.com/tomtom/checksyntax_vim.git
-[submodule "vim/bundle/minibufexpl.vim"]
-	path = vim/bundle/minibufexpl.vim
+[submodule "bundle/minibufexpl.vim"]
+	path = bundle/minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule "vim/bundle/gundo"]
-	path = vim/bundle/gundo
+[submodule "bundle/gundo"]
+	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-
 [submodule "bundle/javascript"]
 	path = bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
