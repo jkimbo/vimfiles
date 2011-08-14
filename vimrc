@@ -4,15 +4,14 @@
 
 set nocompatible                    " not VI compatible
 set vb t_vb=                        " disable bell
-set listchars=trail:-,nbsp:%        " characters to display specials
 set history=500                     " lines of history to remember
 set mouse=a                         " always enable mouse input
 
-map! ii <Esc>
+"map! ii <Esc>
 
 " Colour schemes {
     set background=light
-    colorscheme solarized
+    colorscheme solarized           " prefered colour scheme
     "colorscheme TjlH_col
     "colorscheme desert
     "colorscheme elflord
@@ -22,7 +21,7 @@ set showmode                    " display the current mode
 set hidden                      " hides buffers instead of closing them
 set nobackup                    " no backup
 set noswapfile                  " no swapfile
-set pastetoggle=<F2>            " disables smart indenting when pasting from outside the terminal
+set pastetoggle=<F3>            " disables smart indenting when pasting from outside the terminal
 
 " Setup Bundle Support {
 " The next two lines ensure that the ~/.vim/bundle/ system works
@@ -33,7 +32,6 @@ set pastetoggle=<F2>            " disables smart indenting when pasting from out
 " }
 
 " Setup temp directory
-"set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
@@ -46,24 +44,22 @@ au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, 
 set fileformats=unix                                        " always use Unix file format
 
 au BufRead,BufNewFile *.txt setfiletype text
-au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " Allow for ?sv file editing
+au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
 au BufRead,BufNewFile *.prb setfiletype tex
-au BufNewFile,BufRead *.less set filetype=less
-au BufNewFile,BufRead *.tpl set filetype=smarty
-au BufNewFile,BufRead *.coffee set filetype=coffee
+au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
+au BufNewFile,BufRead *.less set filetype=less              " less syntax
+au BufNewFile,BufRead *.tpl set filetype=smarty             " smarty syntax
+au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
 
 let g:tex_flavor='latex'                                    " use latex styles
-
 
 """"""""""""""""""""""""""""""
 " Style and Syntax
 """""""""""""""""""""""""
 
-filetype plugin on
 filetype plugin indent on                                   " enable file type check and indent
 syntax on                                                   " enable syntax highlighting
 au BufRead,BufNewFile *.tsv silent! Delimiter \t            " set the tsv delimiter to a TAB
-au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
 
 set nu                                                      " set numbering rows
 au StdinReadPost * setlocal nonu                            " but not in man
@@ -75,9 +71,7 @@ set expandtab                                               " expand tabs to spa
 set smarttab                                                " at start shiftwidth, else tabstop
 set autoindent                                              " indent new line to same as previous
 set smartindent                                             " indent on code type
-set list                                                    " EOL, trailing spaces, tabs: show them.
-set lcs=tab:├─                                              " Tabs are shown as ├──├──
-set lcs+=trail:␣                                            " Show trailing spaces as ␣
+set nolist                                                  " disable list on most files
 
 """ control wrapping
 set linebreak                                               " wraps without <eol>
@@ -86,13 +80,14 @@ au Filetype python setlocal textwidth=78
 au Filetype html,tex,text setlocal wrapmargin=2
 au Filetype html,tex,text setlocal formatoptions+=wa
 au Filetype python setlocal formatoptions+=wa2
-au Filetype python setlocal expandtab                       " for python 3 compatibility
-au Filetype coffee setlocal expandtab                       " expand tabs to spaces
-au Filetype coffee setlocal list                            " expand tabs to spaces
+au Filetype python,coffee setlocal expandtab                " expand tabs to spaces
+au Filetype python,coffee setlocal list                     " show tabs and trailing spaces
+au Filetype python,coffee setlocal lcs=tab:├─               " Tabs are shown as ├──├──
+au Filetype python,coffee setlocal lcs+=trail:␣             " Show trailing spaces as ␣
 let coffee_folding = 1
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 """"""""""""""""""""""""""""""
 " VIM UI
@@ -123,7 +118,7 @@ set wmh=0
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 """ Folding
-"set foldcolumn=5
+set foldcolumn=5
 
 au Filetype c,cpp,css,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=5
 au Filetype prolog setlocal foldcolumn=3
@@ -132,20 +127,20 @@ au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlo
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
-au Filetype c,cpp,js setlocal foldignore="#"
+au Filetype c,cpp,js,coffee setlocal foldignore="#"
 au Filetype php,css,html,less,coffee setlocal nowrap
-au Filetype coffee setlocal foldmethod=indent
 "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
 
 " Key (re)Mappings {
 
     "The default leader is '\', but many people prefer ',' as it's in a standard location
     let mapleader = ','
+    let g:mapleader = ","
 
     """ Smart way to move windows
     map <C-j> <C-W>j
     map <C-k> <C-W>k
-    "map <C-j> <C-W>j<C-W>_
+    "map <C-j> <C-W>j<C-W>_                                 " maximise windows when moving between them
     "map <C-k> <C-W>k<C-W>_
     map <C-h> <C-W>h
     map <C-l> <C-W>l
@@ -157,19 +152,6 @@ au Filetype coffee setlocal foldmethod=indent
     nmap <C-Up> <C-W>+<C-W>+
     nmap <C-right> <C-W>><C-W>>
     nmap <C-left> <C-W><<C-W><
-
-    """ Window moving with arrow keys
-    "map <C-Down> <C-W>j<C-W>_
-    "map <C-Up> <C-W>k<C-W>_
-    "map <C-Left> <C-W>h<C-W>
-    "map <C-Right> <C-W>l<C-W>
-
-    " Easier moving in tabs and windows
-    "   map <C-J> <C-W>j<C-W>
-    "   map <C-K> <C-W>k<C-W>
-    "   map <C-L> <C-W>l<C-W>
-    "   map <C-H> <C-W>h<C-W>
-    "   map <C-K> <C-W>k<C-W>
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     nnoremap j gj
@@ -225,17 +207,12 @@ au Filetype help setlocal nospell
 au StdinReadPost * setlocal nospell         " but not in man
 
 set spelllang=en_gb                 " spell check language to GB
-"set spellfile=/home/tom/.vim/spell/I.latin1.add        " set my spellfile
-"au FileType tex setlocal spellfile+=/home/tom/.vim/spell/latex.latin1.add
-"au BufRead tjh08*.* setlocal spellfile+=/home/tom/.vim/spell/elec.latin1.add
 
 " set dictionary+=/usr/share/dict/words         " add standard words
-
 
 """"""""""""""""""""""""""""""
 " Completion
 """""""""""""""""""""""""
-
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -243,18 +220,15 @@ set completeopt=longest,menuone,menu,preview
 
 set complete=.,k,w,b,u,t,i              " add dictionary completion
 
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 runtime ftplugin/man.vim                " Man page plugin
 runtime ftplugin/pdf.vim                " PDF plugin
-
-""" attempt to continue completion
-"imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(getline(line('.')), '\\.', col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>" : "<CR>"
 
 """ ctags config
 "au BufWritePost c,cpp,*.h !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
@@ -291,26 +265,26 @@ let g:pydiction_location = '~/.vim/after/pydiction/complete-dict'
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1             " show function parameters
-let OmniCpp_MayCompleteDot = 1              " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1            " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1            " autocomplete after ::
+let OmniCpp_ShowPrototypeInAbbr = 1                             " show function parameters
+let OmniCpp_MayCompleteDot = 1                                  " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1                                " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1                                " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 """ Maps auto-completion to <Tab>, else inputs Tab.
-"function! SuperCleverTab()
-    "if strpart(getline("."), 0, col(".")-1) =~ '^\s*$\|^.*\s$\|^.*[,;)}\]]$'
-        "return "\<Tab>"
-    "else
-        "if &omnifunc != ''
-            "return "\<C-X>\<C-O>"
-        "else
-            "return "\<C-N>"
-        "endir
-    "endif
-"endfunction
-"
-"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+function! SuperCleverTab()
+    if strpart(getline("."), 0, col(".")-1) =~ '^\s*$\|^.*\s$\|^.*[,;)}\]]$'
+        return "\<Tab>"
+    else
+        if &omnifunc != ''
+            return "\<C-X>\<C-O>"
+        else
+            return "\<C-N>"
+        endir
+    endif
+endfunction
+
+inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 " NerdTree {
     map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
