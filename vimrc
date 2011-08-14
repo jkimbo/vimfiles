@@ -62,6 +62,19 @@ au BufRead,BufNewFile *.tsv silent! Delimiter \t            " set the tsv delimi
 set nu                                                      " set numbering rows
 au StdinReadPost * setlocal nonu                            " but not in man
 
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\    " Filename
+    set statusline+=%w%h%m%r " Options
+    set statusline+=%{fugitive#statusline()} "  Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " filetype
+    set statusline+=\ [%{getcwd()}]          " current dir
+    "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+
 set tabstop=4                                               " spaces per tab
 set softtabstop=4
 set shiftwidth=4                                            " spaces per indent
@@ -70,6 +83,7 @@ set smarttab                                                " at start shiftwidt
 set autoindent                                              " indent new line to same as previous
 set smartindent                                             " indent on code type
 set nolist                                                  " disable list on most files
+set foldenable  				" auto fold code
 
 """ control wrapping
 set linebreak                                               " wraps without <eol>
@@ -92,6 +106,7 @@ autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre 
 """""""""""""""""""""""""
 
 set ruler                                                   " always display cursor position
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
 set backspace=indent,eol,start                              " backspace for dummys
 
 set incsearch                                               " search as type
@@ -118,7 +133,7 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 """ Folding
 set foldcolumn=1                                            " set width of folding column (appears on left side of ruler)
 
-au Filetype c,cpp,css,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
+au Filetype c,cpp,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
 au Filetype prolog setlocal foldcolumn=3
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
@@ -164,6 +179,18 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
+
+	""" Code folding options
+	nmap <leader>f0 :set foldlevel=0<CR>
+	nmap <leader>f1 :set foldlevel=1<CR>
+	nmap <leader>f2 :set foldlevel=2<CR>
+	nmap <leader>f3 :set foldlevel=3<CR>
+	nmap <leader>f4 :set foldlevel=4<CR>
+	nmap <leader>f5 :set foldlevel=5<CR>
+	nmap <leader>f6 :set foldlevel=6<CR>
+	nmap <leader>f7 :set foldlevel=7<CR>
+	nmap <leader>f8 :set foldlevel=8<CR>
+	nmap <leader>f9 :set foldlevel=9<CR>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -257,6 +284,15 @@ let g:pydiction_location = '~/.vim/after/pydiction/complete-dict'
     "let g:SuperTabMidWordCompletion = 1
     "let g:SuperTabCrMapping = 1
     "let g:SuperTabLongestHighlight = 0
+" }
+
+" OmniComplete {
+    " and make sure that it doesn't break supertab
+    let g:SuperTabCrMapping = 0
+    
+    " automatically open and close the popup menu / preview window
+    au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+    set completeopt=menu,preview,longest
 " }
 
 """ OmniCppComplete

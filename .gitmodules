@@ -37,3 +37,6 @@
 [submodule "inspiration/spf13-vim"]
 	path = inspiration/spf13-vim
 	url = https://github.com/spf13/spf13-vim.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
