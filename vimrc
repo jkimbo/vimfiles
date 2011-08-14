@@ -7,8 +7,6 @@ set vb t_vb=                        " disable bell
 set history=500                     " lines of history to remember
 set mouse=a                         " always enable mouse input
 
-"map! ii <Esc>
-
 " Colour schemes {
     set background=light
     colorscheme solarized           " prefered colour scheme
@@ -112,15 +110,15 @@ set viminfo='100                                            " save marks and jum
 
 set whichwrap=b,s,>,<                                       " which movement chars move lines
 
-set wmh=0
+set wmh=0                                                   " window minimum height is 0
 
 """ map <Space> to :noh and clear messages
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 """ Folding
-set foldcolumn=5
+set foldcolumn=1
 
-au Filetype c,cpp,css,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=5
+au Filetype c,cpp,css,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
 au Filetype prolog setlocal foldcolumn=3
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
 au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
