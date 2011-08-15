@@ -86,11 +86,11 @@ set nolist                                                  " disable list on mo
 set foldenable  				" auto fold code
 
 """ control wrapping
-set linebreak                                               " wraps without <eol>
-au Filetype text setlocal textwidth=0                       " overide system vimrc
-au Filetype python setlocal textwidth=78
-au Filetype html,tex,text setlocal wrapmargin=2
-au Filetype html,tex,text setlocal formatoptions+=wa
+"set linebreak                                               " wraps without <eol>
+"au Filetype text setlocal textwidth=0                       " overide system vimrc
+"au Filetype python setlocal textwidth=78
+"au Filetype html,tex,text setlocal wrapmargin=2
+"au Filetype html,tex,text setlocal formatoptions+=wa
 au Filetype python setlocal formatoptions+=wa2
 au Filetype python,coffee setlocal expandtab                " expand tabs to spaces
 au Filetype python,coffee setlocal list                     " show tabs and trailing spaces
