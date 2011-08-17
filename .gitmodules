@@ -43,3 +43,15 @@
 [submodule "bundle/sparkup"]
 	path = bundle/sparkup
 	url = https://github.com/bingaman/vim-sparkup.git
+[submodule "bundle/coffee-script"]
+	path = bundle/coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/vim-less"]
+	path = bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "bundle/javascript-syntax"]
+	path = bundle/javascript-syntax
+	url = https://github.com/vim-scripts/JavaScript-syntax.git
+[submodule "bundle/less"]
+	path = bundle/less
+	url = git@github.com:jkimbo/vim-less.git
