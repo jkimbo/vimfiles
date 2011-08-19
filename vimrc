@@ -360,6 +360,10 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " Yankring {
     nnoremap <silent> <F10> :YRShow<CR> 
 "}
+
+" Sparkup {
+    let g:sparkupExecuteMapping = '<c-z>'
+" }
 """"""""""""""""""""""""""""""
 " Printing
 """""""""""""""""""""""""
