@@ -55,3 +55,6 @@
 [submodule "bundle/less"]
 	path = bundle/less
 	url = git@github.com:jkimbo/vim-less.git
+[submodule "bundle/tcomment"]
+	path = bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git

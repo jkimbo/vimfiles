@@ -364,6 +364,10 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " Sparkup {
     let g:sparkupExecuteMapping = '<c-z>'
 " }
+
+" Tcomment {
+
+" }
 """"""""""""""""""""""""""""""
 " Printing
 """""""""""""""""""""""""
