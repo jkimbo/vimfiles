@@ -8,7 +8,7 @@ set history=500                     " lines of history to remember
 set mouse=a                         " always enable mouse input
 
 " Colour schemes {
-    set background=light
+    set background=dark
     colorscheme solarized           " prefered colour scheme
     "colorscheme TjlH_col
     "colorscheme desert
@@ -358,7 +358,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " }
 
 " Yankring {
-    nnoremap <silent> <F10> :YRShow<CR> 
+    nnoremap <silent> <F6> :YRShow<CR>:YRRefresh<CR> 
 "}
 
 " Sparkup {
