@@ -9,9 +9,9 @@ set mouse=a                         " always enable mouse input
 
 " Colour schemes {
     set background=dark
-    "colorscheme solarized           " prefered colour scheme
+    colorscheme solarized           " prefered colour scheme
     "colorscheme TjlH_col
-    colorscheme desert
+    "colorscheme desert
     "colorscheme elflord
 " }
 
@@ -58,6 +58,8 @@ let g:tex_flavor='latex'                                    " use latex styles
 filetype plugin indent on                                   " enable file type check and indent
 syntax on                                                   " enable syntax highlighting
 au BufRead,BufNewFile *.tsv silent! Delimiter \t            " set the tsv delimiter to a TAB
+set t_Co=256
+let g:solarized_termcolors=256
 
 set nu                                                      " set numbering rows
 au StdinReadPost * setlocal nonu                            " but not in man
