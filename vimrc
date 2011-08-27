@@ -9,9 +9,9 @@ set mouse=a                         " always enable mouse input
 
 " Colour schemes {
     set background=dark
-    colorscheme solarized           " prefered colour scheme
+    "colorscheme solarized           " prefered colour scheme
     "colorscheme TjlH_col
-    "colorscheme desert
+    colorscheme desert
     "colorscheme elflord
 " }
 
