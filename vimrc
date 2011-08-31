@@ -9,6 +9,7 @@ set mouse=a                         " always enable mouse input
 
 " Colour schemes {
     set background=dark
+    "colorscheme darkspectrum
     colorscheme solarized           " prefered colour scheme
     "colorscheme TjlH_col
     "colorscheme desert
@@ -229,7 +230,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 " set spell                     " enable spell check
 " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
-au Filetype c,css,html,javascript,php,tex,text setlocal spell
+au Filetype c,css,html,javascript,php,tex,text,mkd setlocal spell
 au Filetype help setlocal nospell
 au StdinReadPost * setlocal nospell         " but not in man
 
@@ -360,7 +361,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " }
 
 " Yankring {
-    nnoremap <silent> <F6> :YRShow<CR>:YRRefresh<CR> 
+    nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR> 
 "}
 
 " Sparkup {
