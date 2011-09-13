@@ -58,3 +58,15 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "inspiration/exhuma-vim"]
+	path = inspiration/exhuma-vim
+	url = https://github.com/exhuma/vimfiles.git
+[submodule "bundle/jade"]
+	path = bundle/jade
+	url = https://github.com/vim-scripts/jade.vim.git
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = https://github.com/mileszs/ack.vim.git

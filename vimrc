@@ -11,6 +11,7 @@ set mouse=a                         " always enable mouse input
     set background=dark
     "colorscheme darkspectrum
     colorscheme solarized           " prefered colour scheme
+    "colorscheme mustang
     "colorscheme TjlH_col
     "colorscheme desert
     "colorscheme elflord
@@ -21,6 +22,7 @@ set hidden                      " hides buffers instead of closing them
 set nobackup                    " no backup
 set noswapfile                  " no swapfile
 set pastetoggle=<F3>            " disables smart indenting when pasting from outside the terminal
+set undofile
 
 " Setup Bundle Support {
 " The next two lines ensure that the ~/.vim/bundle/ system works
@@ -35,6 +37,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
 au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
+au FocusLost * :wa                  "autosave files on loosing focus
 
 """"""""""""""""""""""""""""""
 " File Formats
@@ -47,7 +50,7 @@ au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file
 au BufRead,BufNewFile *.prb setfiletype tex
 au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
 au BufNewFile,BufRead *.less set filetype=less              " less syntax
-au BufNewFile,BufRead *.tpl set filetype=smarty             " smarty syntax
+au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
 au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
 
 let g:tex_flavor='latex'                                    " use latex styles
@@ -87,6 +90,7 @@ set autoindent                                              " indent new line to
 set smartindent                                             " indent on code type
 set nolist                                                  " disable list on most files
 set foldenable  				" auto fold code
+set gdefault
 
 """ control wrapping
 "set linebreak                                               " wraps without <eol>
@@ -162,6 +166,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     map <C-l> <C-W>l
     map gw <C-W>
     map gW <C-W>
+    nnoremap <leader>w <C-w>v<C-w>l
 
     " Window resizing with arrow keys
     nmap <C-Down> <C-W>-<C-W>-
@@ -195,6 +200,11 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 	nmap <leader>f8 :set foldlevel=8<CR>
 	nmap <leader>f9 :set foldlevel=9<CR>
 
+    inoremap () ()<Left>
+    inoremap [] []<Left>
+    inoremap '' ''<Left>
+    inoremap "" ""<Left>
+
     " Shortcuts
     " Change Working Directory to that of the current file
     cmap cwd lcd %:p:h
@@ -210,6 +220,14 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     " ,l redraws the screen and removes any search highlighting.
     nnoremap <leader>l :nohl<CR>
 
+    " Indent with spacebar
+    "noremap <tab> >>
+    nnoremap <tab> %
+    vnoremap <tab> %
+    " Move easily between ^ and $
+    "noremap <C-h> ^
+    "noremap <C-l> $
+
     " exhuma's .vimrc - https://github.com/exhuma/vimfiles/blob/master/.vimrc
     " {
         " Switch to previous/next buffer
@@ -218,10 +236,22 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     "}
 
     " auto reload vimrc
-    autocmd BufWritePost .vimrc !source ~/.vimrc
+    "autocmd BufWritePost vimrc !source ~/vim/vimrc
 
     " Allows you to edit files that are not in sudo by using w!!
     cmap w!! w !sudo tee % >/dev/null
+
+    " quick edit vimrc
+    nmap <leader>v :e ~/vim/vimrc<CR>
+
+    inoremap <F1> <ESC>
+    nnoremap <F1> <ESC>
+    vnoremap <F1> <ESC>
+
+    nnoremap ; :
+
+    " Strip all trailing whitespaces in a file
+    nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 """"""""""""""""""""""""""""""
 " Spelling
@@ -267,8 +297,8 @@ runtime ftplugin/pdf.vim                " PDF plugin
 "au BufRead,BufNew */avr/*/*/*/*.c setlocal tags+=~/.vim/tags/avr
 "set tags+=~/.vim/tags/gl
 "set tags+=~/.vim/tags/sdl
-"au Filetype cpp set tags+=~/.vim/tags/qt4 
-"set tags+=~/.vim/tags/gtk-2 
+"au Filetype cpp set tags+=~/.vim/tags/qt4
+"set tags+=~/.vim/tags/gtk-2
 
 """"""""""""""""""""""""""""""
 " Plugin configuration
@@ -276,7 +306,7 @@ runtime ftplugin/pdf.vim                " PDF plugin
 
 """ TagList
 noremap <silent> mtt :TlistToggle<CR>
-let Tlist_Use_Right_Window = 1 
+let Tlist_Use_Right_Window = 1
 
 """ Pydiction
 let g:pydiction_location = '~/.vim/after/pydiction/complete-dict'
@@ -292,7 +322,7 @@ let g:pydiction_location = '~/.vim/after/pydiction/complete-dict'
 " OmniComplete {
     " and make sure that it doesn't break supertab
     let g:SuperTabCrMapping = 0
-    
+
     " automatically open and close the popup menu / preview window
     au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
     set completeopt=menu,preview,longest
@@ -338,13 +368,13 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
     " autocmd BufEnter * NERDTreeMirror
 " }
 
-" Gundo { 
+" Gundo {
     nnoremap <F5> :GundoToggle<CR>
     let g:gundo_right = 1
 "}
 "
 " Ctags {
-    " This will look in the current directory for 'tags', and work up the tree towards root until one is found. 
+    " This will look in the current directory for 'tags', and work up the tree towards root until one is found.
         set tags=./tags;/,$HOME/vimtags
         map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " C-\ - Open the definition in a new tab
         map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " A-] - Open the definition in a vertical split
@@ -361,7 +391,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " }
 
 " Yankring {
-    nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR> 
+    nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR>
 "}
 
 " Sparkup {
@@ -371,6 +401,16 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " Tcomment {
 
 " }
+
+" Vimwiki {
+    let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}]
+" }
+
+" Ack {
+    let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+    nnoremap <leader>a :Ack 
+" }
+
 """"""""""""""""""""""""""""""
 " Printing
 """""""""""""""""""""""""
