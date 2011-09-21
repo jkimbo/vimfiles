@@ -172,7 +172,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     map <C-l> <C-W>l
     map gw <C-W>
     map gW <C-W>
-    nnoremap <leader>w <C-w>v<C-w>l
+    nnoremap <leader>vw <C-w>v<C-w>l                        " open new window in vertical split
 
     " Window resizing with arrow keys
     nmap <C-Down> <C-W>-<C-W>-
