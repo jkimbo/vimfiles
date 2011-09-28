@@ -104,10 +104,10 @@ set gdefault
 "au Filetype html,tex,text setlocal wrapmargin=2
 "au Filetype html,tex,text setlocal formatoptions+=wa
 au Filetype python setlocal formatoptions+=wa2
-au Filetype python,coffee setlocal expandtab                " expand tabs to spaces
-au Filetype python,coffee setlocal list                     " show tabs and trailing spaces
-au Filetype python,coffee setlocal lcs=tab:├─               " Tabs are shown as ├──├──
-au Filetype python,coffee setlocal lcs+=trail:␣             " Show trailing spaces as ␣
+au Filetype python,coffee,jade setlocal expandtab                " expand tabs to spaces
+au Filetype python,coffee,jade setlocal list                     " show tabs and trailing spaces
+au Filetype python,coffee,jade setlocal lcs=tab:├─               " Tabs are shown as ├──├──
+au Filetype python,coffee,jade setlocal lcs+=trail:␣             " Show trailing spaces as ␣
 let coffee_folding = 1
 
 " Remove trailing whitespaces and ^M chars
@@ -206,10 +206,10 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 	nmap <leader>f8 :set foldlevel=8<CR>
 	nmap <leader>f9 :set foldlevel=9<CR>
 
-    inoremap () ()<Left>
-    inoremap [] []<Left>
-    inoremap '' ''<Left>
-    inoremap "" ""<Left>
+    "inoremap () ()<Left>
+    "inoremap [] []<Left>
+    "inoremap '' ''<Left>
+    "inoremap "" ""<Left>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -266,7 +266,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 " set spell                     " enable spell check
 " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
-au Filetype c,css,html,javascript,php,tex,text,mkd setlocal spell
+au Filetype c,css,html,javascript,php,tex,text,mkd,wiki setlocal spell
 au Filetype help setlocal nospell
 au StdinReadPost * setlocal nospell         " but not in man
 
@@ -410,6 +410,11 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 " Vimwiki {
     let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}]
+" }
+
+" Vim Task {
+    inoremap <silent> <buffer> <leader>c<CR> <ESC>:call Toggle_task_status()<CR>i
+    noremap <silent> <buffer> <leader>c<CR> :call Toggle_task_status()<CR>
 " }
 
 " Ack {

@@ -79,6 +79,6 @@
 [submodule "bundle/vimgtd"]
 	path = bundle/vimgtd
 	url = https://github.com/vim-scripts/vimgtd--nianyang.git
-[submodule "bundle/vim-task"]
-	path = bundle/vim-task
+[submodule "bundle/vimtask"]
+	path = bundle/vimtask
 	url = https://github.com/samsonw/vim-task.git
