@@ -364,6 +364,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
     "let NERDTreeQuitOnOpen=1
     let NERDTreeShowHidden=1
     let NERDTreeKeepTreeInNewTab=1
+    let NERDTreeWinSize=20
     " autocmd VimEnter * NERDTree
     " autocmd BufEnter * NERDTreeMirror
 " }
