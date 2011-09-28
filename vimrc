@@ -1,3 +1,8 @@
+" File: vimrc
+" Author: Jonathan Kim
+" Description: My personal vim file
+" Last Modified: September 20, 2011
+
 """"""""""""""""""""""""""""""
 " General settings
 """""""""""""""""""""""""
@@ -156,6 +161,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     "The default leader is '\', but many people prefer ',' as it's in a standard location
     let mapleader = ','
     let g:mapleader = ","
+    let maplocalleader = "\\"
 
     """ Smart way to move windows
     map <C-j> <C-W>j
@@ -166,7 +172,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     map <C-l> <C-W>l
     map gw <C-W>
     map gW <C-W>
-    nnoremap <leader>w <C-w>v<C-w>l
+    nnoremap <leader>w <C-w>v<C-w>l                        " open new window in vertical split
 
     " Window resizing with arrow keys
     nmap <C-Down> <C-W>-<C-W>-
@@ -410,6 +416,11 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 " Ack {
     let g:ackprg="ack-grep -H --nocolor --nogroup --column"
     nnoremap <leader>a :Ack 
+" }
+
+" Fugitive {
+    nnoremap <leader>gs :Gstatus<CR>
+    nnoremap <leader>gc :Gcommit<CR>
 " }
 
 """"""""""""""""""""""""""""""

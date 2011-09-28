@@ -70,3 +70,15 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/threesome"]
+	path = bundle/threesome
+	url = https://github.com/sjl/threesome.vim.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "bundle/vimgtd"]
+	path = bundle/vimgtd
+	url = https://github.com/vim-scripts/vimgtd--nianyang.git
+[submodule "bundle/vim-task"]
+	path = bundle/vim-task
+	url = https://github.com/samsonw/vim-task.git
