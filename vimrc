@@ -111,7 +111,7 @@ au Filetype python,coffee,jade setlocal lcs+=trail:␣             " Show traili
 let coffee_folding = 1
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+"autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 """"""""""""""""""""""""""""""
 " VIM UI
@@ -147,11 +147,11 @@ set foldcolumn=1                                            " set width of foldi
 
 au Filetype c,cpp,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
 au Filetype prolog setlocal foldcolumn=3
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
 au Filetype c,cpp,js,coffee setlocal foldignore="#"
 au Filetype php,css,html,less,coffee setlocal nowrap
 "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
@@ -290,7 +290,7 @@ autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 runtime ftplugin/man.vim                " Man page plugin
 runtime ftplugin/pdf.vim                " PDF plugin
 
