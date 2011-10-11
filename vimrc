@@ -104,14 +104,14 @@ set gdefault
 "au Filetype html,tex,text setlocal wrapmargin=2
 "au Filetype html,tex,text setlocal formatoptions+=wa
 au Filetype python setlocal formatoptions+=wa2
-au Filetype python,coffee setlocal expandtab                " expand tabs to spaces
-au Filetype python,coffee setlocal list                     " show tabs and trailing spaces
-au Filetype python,coffee setlocal lcs=tab:├─               " Tabs are shown as ├──├──
-au Filetype python,coffee setlocal lcs+=trail:␣             " Show trailing spaces as ␣
+au Filetype python,coffee,jade setlocal expandtab                " expand tabs to spaces
+au Filetype python,coffee,jade setlocal list                     " show tabs and trailing spaces
+au Filetype python,coffee,jade setlocal lcs=tab:├─               " Tabs are shown as ├──├──
+au Filetype python,coffee,jade setlocal lcs+=trail:␣             " Show trailing spaces as ␣
 let coffee_folding = 1
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+"autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 """"""""""""""""""""""""""""""
 " VIM UI
@@ -147,11 +147,11 @@ set foldcolumn=1                                            " set width of foldi
 
 au Filetype c,cpp,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
 au Filetype prolog setlocal foldcolumn=3
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-au Filetype c,cpp,css,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
+au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
 au Filetype c,cpp,js,coffee setlocal foldignore="#"
 au Filetype php,css,html,less,coffee setlocal nowrap
 "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
@@ -206,10 +206,10 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 	nmap <leader>f8 :set foldlevel=8<CR>
 	nmap <leader>f9 :set foldlevel=9<CR>
 
-    inoremap () ()<Left>
-    inoremap [] []<Left>
-    inoremap '' ''<Left>
-    inoremap "" ""<Left>
+    "inoremap () ()<Left>
+    "inoremap [] []<Left>
+    "inoremap '' ''<Left>
+    "inoremap "" ""<Left>
 
     " Shortcuts
     " Change Working Directory to that of the current file
@@ -269,7 +269,7 @@ au Filetype php,css,html,less,coffee setlocal nowrap
 " set spell                     " enable spell check
 " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
-au Filetype c,css,html,javascript,php,tex,text,mkd setlocal spell
+au Filetype c,css,html,javascript,php,tex,text,mkd,wiki setlocal spell
 au Filetype help setlocal nospell
 au StdinReadPost * setlocal nospell         " but not in man
 
@@ -293,7 +293,7 @@ autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 runtime ftplugin/man.vim                " Man page plugin
 runtime ftplugin/pdf.vim                " PDF plugin
 
@@ -414,6 +414,11 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 " Vimwiki {
     let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}]
+" }
+
+" Vim Task {
+    inoremap <silent> <buffer> <leader>c<CR> <ESC>:call Toggle_task_status()<CR>i
+    noremap <silent> <buffer> <leader>c<CR> :call Toggle_task_status()<CR>
 " }
 
 " Ack {
