@@ -259,6 +259,9 @@ au Filetype php,css,html,less,coffee setlocal nowrap
     " Strip all trailing whitespaces in a file
     nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+    " Calculator mapping
+    inoremap <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
 """"""""""""""""""""""""""""""
 " Spelling
 """""""""""""""""""""""""
