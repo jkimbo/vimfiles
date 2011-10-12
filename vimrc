@@ -438,6 +438,10 @@
         nnoremap <leader>gc :Gcommit<CR>
     " }}}
 
+    " Tasklist {{{
+        map T <Plug>TaskList
+        let g:tlWindowPosition = 1
+    " }}}
 " }}}
 
 " Printing {{{
