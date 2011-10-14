@@ -412,7 +412,7 @@
     " }}}
 
     " Sparkup {{{
-        let g:sparkupExecuteMapping = '<c-z>'
+        let g:sparkupExecuteMapping = '<leader>z'
     " }}}
 
     " Tcomment {{{
