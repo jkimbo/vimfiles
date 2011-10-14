@@ -57,6 +57,7 @@
     au BufNewFile,BufRead *.less set filetype=less              " less syntax
     au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
     au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
+    au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
 
     let g:tex_flavor='latex'                                    " use latex styles
 
