@@ -290,7 +290,7 @@ autocmd FileType less set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 runtime ftplugin/man.vim                " Man page plugin
 runtime ftplugin/pdf.vim                " PDF plugin
 
@@ -402,7 +402,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 "}
 
 " Sparkup {
-    let g:sparkupExecuteMapping = '<c-z>'
+    let g:sparkupExecuteMapping = '<c-s>'
 " }
 
 " Tcomment {
@@ -427,6 +427,7 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
     nnoremap <leader>gs :Gstatus<CR>
     nnoremap <leader>gc :Gcommit<CR>
 " }
+
 
 """"""""""""""""""""""""""""""
 " Printing
