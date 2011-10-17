@@ -1,87 +1,87 @@
-[submodule "bundle/checksyntax_vim"]
-	path = bundle/checksyntax_vim
+[submodule "bundle-all/checksyntax_vim"]
+	path = bundle-all/checksyntax_vim
 	url = https://github.com/tomtom/checksyntax_vim.git
-[submodule "bundle/minibufexpl.vim"]
-	path = bundle/minibufexpl.vim
+[submodule "bundle-all/minibufexpl.vim"]
+	path = bundle-all/minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
+[submodule "bundle-all/gundo"]
+	path = bundle-all/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+[submodule "bundle-all/nerdcommenter"]
+	path = bundle-all/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/javascript"]
-	path = bundle/javascript
+[submodule "bundle-all/javascript"]
+	path = bundle-all/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "bundle/jquery"]
-	path = bundle/jquery
+[submodule "bundle-all/jquery"]
+	path = bundle-all/jquery
 	url = https://github.com/itspriddle/vim-jquery.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
+[submodule "bundle-all/command-t"]
+	path = bundle-all/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule "bundle/ruby"]
-	path = bundle/ruby
+[submodule "bundle-all/ruby"]
+	path = bundle-all/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "bundle/yankring"]
-	path = bundle/yankring
+[submodule "bundle-all/yankring"]
+	path = bundle-all/yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
-[submodule "bundle/mustache"]
-	path = bundle/mustache
+[submodule "bundle-all/mustache"]
+	path = bundle-all/mustache
 	url = git://github.com/juvenn/mustache.vim.git
-[submodule "bundle/html5"]
-	path = bundle/html5
+[submodule "bundle-all/html5"]
+	path = bundle-all/html5
 	url = git://github.com/othree/html5.vim.git
 [submodule "inspiration/spf13-vim"]
 	path = inspiration/spf13-vim
 	url = https://github.com/spf13/spf13-vim.git
-[submodule "bundle/fugitive"]
-	path = bundle/fugitive
+[submodule "bundle-all/fugitive"]
+	path = bundle-all/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/sparkup"]
-	path = bundle/sparkup
+[submodule "bundle-all/sparkup"]
+	path = bundle-all/sparkup
 	url = https://github.com/bingaman/vim-sparkup.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
+[submodule "bundle-all/coffee-script"]
+	path = bundle-all/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/vim-less"]
-	path = bundle/vim-less
+[submodule "bundle-all/vim-less"]
+	path = bundle-all/vim-less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "bundle/javascript-syntax"]
-	path = bundle/javascript-syntax
+[submodule "bundle-all/javascript-syntax"]
+	path = bundle-all/javascript-syntax
 	url = https://github.com/vim-scripts/JavaScript-syntax.git
-[submodule "bundle/less"]
-	path = bundle/less
+[submodule "bundle-all/less"]
+	path = bundle-all/less
 	url = git@github.com:jkimbo/vim-less.git
-[submodule "bundle/tcomment"]
-	path = bundle/tcomment
+[submodule "bundle-all/tcomment"]
+	path = bundle-all/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "bundle/markdown"]
-	path = bundle/markdown
+[submodule "bundle-all/markdown"]
+	path = bundle-all/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "inspiration/exhuma-vim"]
 	path = inspiration/exhuma-vim
 	url = https://github.com/exhuma/vimfiles.git
-[submodule "bundle/jade"]
-	path = bundle/jade
+[submodule "bundle-all/jade"]
+	path = bundle-all/jade
 	url = https://github.com/vim-scripts/jade.vim.git
-[submodule "bundle/vimwiki"]
-	path = bundle/vimwiki
+[submodule "bundle-all/vimwiki"]
+	path = bundle-all/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/threesome"]
-	path = bundle/threesome
+[submodule "bundle-all/threesome"]
+	path = bundle-all/threesome
 	url = https://github.com/sjl/threesome.vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
+[submodule "bundle-all/snipmate"]
+	path = bundle-all/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundle/vimgtd"]
-	path = bundle/vimgtd
+[submodule "bundle-all/vimgtd"]
+	path = bundle-all/vimgtd
 	url = https://github.com/vim-scripts/vimgtd--nianyang.git
-[submodule "bundle/vimtask"]
-	path = bundle/vimtask
+[submodule "bundle-all/vimtask"]
+	path = bundle-all/vimtask
 	url = https://github.com/samsonw/vim-task.git
-[submodule "bundle/vimroom"]
-	path = bundle/vimroom
-	url = https://github.com/mikewest/vimroom.git
+[submodule "bundle-all/tasklist"]
+	path = bundle-all/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "bundle-all/ack"]
+    path = bundle-all/ack
+	url = https://github.com/mileszs/ack.vim.git
