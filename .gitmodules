@@ -72,7 +72,7 @@
 	url = https://github.com/sjl/threesome.vim.git
 [submodule "bundle-all/snipmate"]
 	path = bundle-all/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
+	url = git@github.com:jkimbo/snipmate.vim.git
 [submodule "bundle-all/vimgtd"]
 	path = bundle-all/vimgtd
 	url = https://github.com/vim-scripts/vimgtd--nianyang.git
