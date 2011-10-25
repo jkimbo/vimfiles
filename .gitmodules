@@ -39,7 +39,7 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle-all/sparkup"]
 	path = bundle-all/sparkup
-	url = https://github.com/bingaman/vim-sparkup.git
+	url = git@github.com:jkimbo/sparkup.git
 [submodule "bundle-all/coffee-script"]
 	path = bundle-all/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
