@@ -74,7 +74,7 @@
     set nu                                                      " set numbering rows
     au StdinReadPost * setlocal nonu                            " but not in man
 
-    if has('statusline')
+    if has('statusline') " {{{
         set laststatus=2
 
         " Broken down into easily includeable segments
@@ -85,7 +85,7 @@
         set statusline+=\ [%{getcwd()}]          " current dir
         "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
+    endif " }}}
 
     set tabstop=4                                               " spaces per tab
     set softtabstop=4
@@ -146,7 +146,7 @@
     """ Folding
     set foldcolumn=1                                            " set width of folding column (appears on left side of ruler)
 
-    au Filetype c,cpp,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
+    au Filetype c,cpp,css,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
     au Filetype prolog setlocal foldcolumn=3
     au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
     au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
