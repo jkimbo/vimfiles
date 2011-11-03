@@ -50,17 +50,6 @@
 
     set fileformats=unix                                        " always use Unix file format
 
-    au BufRead,BufNewFile *.txt setfiletype text
-    au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
-    au BufRead,BufNewFile *.prb setfiletype tex
-    au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
-    au BufNewFile,BufRead *.less set filetype=less              " less syntax
-    au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
-    au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
-    au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
-
-    let g:tex_flavor='latex'                                    " use latex styles
-
 " }}}
 
 " Style and Syntax {{{
@@ -111,6 +100,17 @@
     au Filetype python,coffee,jade setlocal lcs+=trail:␣             " Show trailing spaces as ␣
     let coffee_folding = 1
 
+    au BufRead,BufNewFile *.txt setfiletype text
+    au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
+    au BufRead,BufNewFile *.prb setfiletype tex
+    au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
+    au BufNewFile,BufRead *.less set filetype=less              " less syntax
+    au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
+    au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
+    au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
+
+    let g:tex_flavor='latex'                                    " use latex styles
+
     " Remove trailing whitespaces and ^M chars
     "autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
@@ -154,6 +154,8 @@
     au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
     au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
     au Filetype *vimrc setlocal foldmethod=marker
+    au Filetype vimwiki setlocal foldmarker={,}
+    au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,js,coffee setlocal foldignore="#"
     au Filetype php,css,html,less,coffee setlocal nowrap
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
@@ -273,7 +275,7 @@
     " set spell                     " enable spell check
     " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
-    au Filetype c,css,html,javascript,php,tex,text,mkd,wiki setlocal spell
+    au Filetype c,css,html,javascript,php,tex,text,mkd,wiki,vimwiki setlocal spell
     au Filetype help setlocal nospell
     au StdinReadPost * setlocal nospell         " but not in man
 
