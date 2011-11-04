@@ -85,3 +85,6 @@
 [submodule "bundle-all/ack"]
     path = bundle-all/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle-all/eco"]
+	path = bundle-all/eco
+	url = https://github.com/jayferd/eco.vim.git
