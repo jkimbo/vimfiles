@@ -88,3 +88,6 @@
 [submodule "bundle-all/eco"]
 	path = bundle-all/eco
 	url = https://github.com/jayferd/eco.vim.git
+[submodule "bundle-all/stylus"]
+	path = bundle-all/stylus
+	url = https://github.com/wavded/vim-stylus.git
