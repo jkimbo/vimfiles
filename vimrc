@@ -88,16 +88,16 @@
     set gdefault
 
     """ control wrapping
-    "set linebreak                                               " wraps without <eol>
-    "au Filetype text setlocal textwidth=0                       " overide system vimrc
+    "set linebreak                                                  " wraps without <eol>
+    "au Filetype text setlocal textwidth=0                          " overide system vimrc
     "au Filetype python setlocal textwidth=78
-    "au Filetype html,tex,text setlocal wrapmargin=2
     "au Filetype html,tex,text setlocal formatoptions+=wa
     au Filetype python setlocal formatoptions+=wa2
-    au Filetype python,coffee,jade setlocal expandtab                " expand tabs to spaces
-    au Filetype python,coffee,jade setlocal list                     " show tabs and trailing spaces
-    au Filetype python,coffee,jade setlocal lcs=tab:├─               " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade setlocal lcs+=trail:␣             " Show trailing spaces as ␣
+    au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
+    au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    au Filetype vimwiki,mkd setlocal wrapmargin=2                   " Set wrapmargin on markdown and vimwiki files 
     let coffee_folding = 1
 
     au BufRead,BufNewFile *.txt setfiletype text
@@ -280,9 +280,9 @@
     au Filetype help setlocal nospell
     au StdinReadPost * setlocal nospell         " but not in man
 
-    set spelllang=en_gb                 " spell check language to GB
+    set spelllang=en_gb                         " spell check language to GB
 
-    " set dictionary+=/usr/share/dict/words         " add standard words
+    set dictionary+=/usr/share/dict/words       " add standard words
     
 " }}}
 
@@ -370,7 +370,7 @@
             endif
         endfunction
 
-        inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+        " inoremap <Tab> <C-R>=SuperCleverTab()<cr>
     " }}}
 
     " NerdTree {{{
