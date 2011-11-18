@@ -149,11 +149,11 @@
 
     au Filetype c,cpp,css,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
     au Filetype prolog setlocal foldcolumn=3
-    au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
-    au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
-    au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
-    au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-    au Filetype c,cpp,css,less,html,js,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
     au Filetype *vimrc setlocal foldmethod=marker
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
