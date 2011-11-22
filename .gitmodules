@@ -88,3 +88,6 @@
 [submodule "bundle-all/stylus"]
 	path = bundle-all/stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule "bundle-all/matchtag"]
+	path = bundle-all/matchtag
+	url = https://github.com/gregsexton/MatchTag.git
