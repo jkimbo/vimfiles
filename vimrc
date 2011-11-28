@@ -67,11 +67,11 @@
         set laststatus=2
 
         " Broken down into easily includeable segments
+        "set statusline=\ [%{getcwd()}]          " current dir
         set statusline=%<%f\    " Filename
-        set statusline+=%w%h%m%r " Options
         set statusline+=%{fugitive#statusline()} "  Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " filetype
-        set statusline+=\ [%{getcwd()}]          " current dir
+        set statusline+=\ %w%h%m%r " Options
         "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif " }}}
@@ -97,7 +97,7 @@
     au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
     au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
     au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
-    au Filetype vimwiki,mkd setlocal wrapmargin=2                   " Set wrapmargin on markdown and vimwiki files 
+    au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
     let coffee_folding = 1
 
     au BufRead,BufNewFile *.txt setfiletype text
