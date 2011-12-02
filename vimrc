@@ -71,7 +71,7 @@
         set statusline=%<%f\    " Filename
         set statusline+=%{fugitive#statusline()} "  Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " filetype
-        set statusline+=\ %w%h%m%r " Options
+        set statusline+=\ %w%h%m%r\ " Options
         "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif " }}}
