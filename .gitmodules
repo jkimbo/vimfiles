@@ -94,3 +94,6 @@
 [submodule "bundle-all/pyflakes"]
 	path = bundle-all/pyflakes
 	url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle-all/piv"]
+	path = bundle-all/piv
+	url = https://github.com/spf13/PIV.git
