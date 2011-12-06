@@ -73,8 +73,28 @@
         set statusline+=\ [%{&ff}/%Y]            " filetype
         set statusline+=\ %w%h%m%r\ " Options
         "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
+        "set statusline+=%=%-14.(%{WordCount()}\ %l,%c%V%)\ %p%%  " Right aligned file nav info
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif " }}}
+
+    function! WordCount() " {{{ doesn't work! :(
+        let s:old_status = v:statusmsg
+        exe "silent normal g\<c-g>"
+        try 
+            if mode()=~#"^[vV\<C-v>]" 
+                let s:word_count = str2nr(split(v:statusmsg)[5]) 
+                "let s:word_count = str2nr(matchlist(v:statusmsg, '\([0-9]\+\)\sof\s[0-9]\+\sWords')[1])
+            else
+                let s:word_count = str2nr(split(v:statusmsg)[11]) 
+                "let s:word_count = str2nr(matchlist(v:statusmsg, 'Word\s[0-9]\+\sof\s\([0-9]\+\)')[1])
+            endif 
+        catch 
+           let s:word_count = 0 
+        endtry
+        let v:statusmsg = s:old_status
+        return s:word_count
+    endfunction
+    " }}} 
 
     set tabstop=4                                               " spaces per tab
     set softtabstop=4
@@ -98,7 +118,8 @@
     au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
     au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
     au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
-    let coffee_folding = 1
+    au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
+    let coffee_folding = 1 
 
     au BufRead,BufNewFile *.txt setfiletype text
     au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
@@ -154,7 +175,7 @@
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
-    au Filetype *vimrc setlocal foldmethod=marker
+    au Filetype vim setlocal foldmethod=marker
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,js,coffee setlocal foldignore="#"
@@ -331,9 +352,10 @@
 
     " Supertab {{{
         let g:SuperTabDefaultCompletionType = "context"
-        let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+        "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+        let g:SuperTabNoCompleteAfter = ['\s', '#']
         "let g:SuperTabMidWordCompletion = 1
-        "let g:SuperTabCrMapping = 1
+        "let g:SuperTabCrMapping = 0
         "let g:SuperTabLongestHighlight = 0
     " }}}
 
@@ -413,6 +435,7 @@
 
     " Yankring {{{
         nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR>
+        "let g:yankring_clipboard_monitor = 1
     " }}}
 
     " Sparkup {{{
