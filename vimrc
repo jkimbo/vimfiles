@@ -133,6 +133,8 @@
 
     let g:tex_flavor='latex'                                    " use latex styles
 
+    autocmd Filetype vimwiki,mkd :UniCycleOn                    " enable unicycle 
+
     " Remove trailing whitespaces and ^M chars
     "autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 

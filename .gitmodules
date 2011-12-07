@@ -97,3 +97,6 @@
 [submodule "bundle-all/piv"]
 	path = bundle-all/piv
 	url = https://github.com/spf13/PIV.git
+[submodule "bundle-all/unicycle"]
+	path = bundle-all/unicycle
+	url = https://github.com/vim-scripts/UniCycle.git
