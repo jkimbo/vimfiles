@@ -284,6 +284,9 @@
     nnoremap <F1> <ESC>
     vnoremap <F1> <ESC>
 
+    noremap <F12> <Esc>:syntax sync fromstart<CR>       " fix syntax highlighting problems
+    inoremap <F12> <C-o>:syntax sync fromstart<CR>      " fix syntax highlighting problems
+
     nnoremap ; :
 
     " Strip all trailing whitespaces in a file
