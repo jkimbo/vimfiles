@@ -439,7 +439,8 @@
     " }}}
 
     " Yankring {{{
-        nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR>
+        "nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR>
+        nnoremap <silent> <F6> :YRShow<CR>
         "let g:yankring_clipboard_monitor = 1
     " }}}
 
