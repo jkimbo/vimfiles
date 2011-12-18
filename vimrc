@@ -287,7 +287,7 @@
     noremap <F12> <Esc>:syntax sync fromstart<CR>       " fix syntax highlighting problems
     inoremap <F12> <C-o>:syntax sync fromstart<CR>      " fix syntax highlighting problems
 
-    nnoremap ; :
+    "nnoremap ; :
 
     " Strip all trailing whitespaces in a file
     nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
