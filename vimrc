@@ -39,6 +39,8 @@
 
     " Setup temp directory
     set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+    
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 
     au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
     au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
@@ -114,9 +116,9 @@
     "au Filetype html,tex,text setlocal formatoptions+=wa
     au Filetype python setlocal formatoptions+=wa2
     au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
-    au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
-    au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    au Filetype python,coffee,jade,javascript setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade,javascript setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade,javascript setlocal lcs+=trail:␣            " Show trailing spaces as ␣
     au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
     au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
     let coffee_folding = 1 
@@ -133,7 +135,7 @@
 
     let g:tex_flavor='latex'                                    " use latex styles
 
-    autocmd Filetype vimwiki,mkd :UniCycleOn                    " enable unicycle 
+    "autocmd Filetype vimwiki,mkd :UniCycleOn                    " enable unicycle 
 
     " Remove trailing whitespaces and ^M chars
     "autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -474,6 +476,10 @@
     " Tasklist {{{
         map T <Plug>TaskList
         let g:tlWindowPosition = 1
+    " }}}
+
+    " Ctrlp {{{
+        nnoremap <leader>t :CtrlP<CR> 
     " }}}
 " }}}
 
