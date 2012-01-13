@@ -100,3 +100,9 @@
 [submodule "bundle-all/unicycle"]
 	path = bundle-all/unicycle
 	url = https://github.com/vim-scripts/UniCycle.git
+[submodule "bundle-all/command-t"]
+	path = bundle-all/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "bundle-all/ctrlp"]
+	path = bundle-all/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
