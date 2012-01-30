@@ -178,13 +178,14 @@
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
     au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=10
+    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=20
     au Filetype vim setlocal foldmethod=marker
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,js,coffee setlocal foldignore="#"
     au Filetype php,css,html,less,coffee setlocal nowrap
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
+    autocmd BufNewFile,BufRead *.json set ft=javascript
     
 " }}}
 
