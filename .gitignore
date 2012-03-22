@@ -4,3 +4,5 @@ view/
 # Ignore backup
 backup/
 
+# netrwhist
+.netrwhist

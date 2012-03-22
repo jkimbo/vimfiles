@@ -59,7 +59,7 @@
     filetype plugin indent on                                   " enable file type check and indent
     syntax on                                                   " enable syntax highlighting
     au BufRead,BufNewFile *.tsv silent! Delimiter \t            " set the tsv delimiter to a TAB
-    set t_Co=256
+    "set t_Co=256
     let g:solarized_termcolors=256
 
     set nu                                                      " set numbering rows
@@ -298,6 +298,17 @@
     " Calculator mapping
     inoremap <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
+    " On ubuntu (running Vim in gnome-terminal)
+    " The reason for the double-command on <C-c> is due to some weirdness with the X clipboard system.
+    nnoremap <C-c> "+y
+    vnoremap <C-c> "+y
+    nnoremap <C-v> "+gP
+    vnoremap <C-v> "+gP
+
+    " Use space to navigate split windows
+    nmap <Space> <C-w>w
+    nmap <S-Space> <C-w>W
+
 " }}}
 
 " Spelling {{{
@@ -361,7 +372,7 @@
     " Supertab {{{
         let g:SuperTabDefaultCompletionType = "context"
         "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-        let g:SuperTabNoCompleteAfter = ['\s', '#']
+        let g:SuperTabNoCompleteAfter = ['\s', '#', '*']
         "let g:SuperTabMidWordCompletion = 1
         "let g:SuperTabCrMapping = 0
         "let g:SuperTabLongestHighlight = 0
@@ -481,6 +492,8 @@
 
     " Ctrlp {{{
         nnoremap <leader>t :CtrlP<CR> 
+        let g:ctrlp_working_path_mode = 2
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~   " Linux/MacOSX
     " }}}
 " }}}
 
