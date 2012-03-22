@@ -305,10 +305,6 @@
     nnoremap <C-v> "+gP
     vnoremap <C-v> "+gP
 
-    " Use space to navigate split windows
-    nmap <Space> <C-w>w
-    nmap <S-Space> <C-w>W
-
 " }}}
 
 " Spelling {{{
