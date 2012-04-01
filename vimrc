@@ -488,6 +488,7 @@
 
     " Ctrlp {{{
         nnoremap <leader>t :CtrlP<CR> 
+        nnoremap <leader><space> :CtrlPBuffer<CR> 
         let g:ctrlp_working_path_mode = 2
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~   " Linux/MacOSX
     " }}}
