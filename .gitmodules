@@ -115,3 +115,6 @@
 [submodule "bundle-all/lusty"]
 	path = bundle-all/lusty
 	url = https://github.com/sjbach/lusty.git
+[submodule "bundle-all/unimpaired"]
+	path = bundle-all/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
