@@ -313,6 +313,7 @@
     " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
     au Filetype c,css,html,javascript,php,tex,text,mkd,wiki,vimwiki setlocal spell
+    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell " git commit messages
     au Filetype help setlocal nospell
     au StdinReadPost * setlocal nospell         " but not in man
 

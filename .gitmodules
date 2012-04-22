@@ -118,3 +118,6 @@
 [submodule "bundle-all/unimpaired"]
 	path = bundle-all/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle-all/nerdtree"]
+	path = bundle-all/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
