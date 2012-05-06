@@ -118,3 +118,6 @@
 [submodule "bundle-all/neocomplcache"]
 	path = bundle-all/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle-all/supertab"]
+	path = bundle-all/supertab
+	url = https://github.com/ervandew/supertab.git
