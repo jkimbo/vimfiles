@@ -461,6 +461,9 @@
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~   " Linux/MacOSX
     " }}}
 
+    " Tagbar {{{
+        nmap <F8> :TagbarToggle<CR> 
+    " }}}
 " }}}
 
 " Printing {{{

@@ -121,3 +121,6 @@
 [submodule "bundle-all/supertab"]
 	path = bundle-all/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "bundle-all/tagbar"]
+	path = bundle-all/tagbar
+	url = https://github.com/majutsushi/tagbar.git
