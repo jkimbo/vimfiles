@@ -124,3 +124,6 @@
 [submodule "bundle-all/tagbar"]
 	path = bundle-all/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle-all/phpcomplete"]
+	path = bundle-all/phpcomplete
+	url = https://github.com/shawncplus/phpcomplete.vim.git

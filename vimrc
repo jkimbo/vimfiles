@@ -331,13 +331,14 @@
 
     set complete=.,k,w,b,u,t,i              " add dictionary completion
 
-    set omnifunc=syntaxcomplete#Complete
+    "set omnifunc=syntaxcomplete#Complete
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
     autocmd FileType less set omnifunc=csscomplete#CompleteCSS
     autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
-    "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
     runtime ftplugin/man.vim                " Man page plugin
     runtime ftplugin/pdf.vim                " PDF plugin
 
@@ -357,11 +358,6 @@
 
 " Plugin configuration {{{
 
-    " TagList {{{
-        noremap <silent> mtt :TlistToggle<CR>
-        let Tlist_Use_Right_Window = 1
-    " }}}
-
     " Maps auto-completion to <Tab>, else inputs Tab. {{{
         function! SuperCleverTab()
             if strpart(getline("."), 0, col(".")-1) =~ '^\s*$\|^.*\s$\|^.*[,;)}\]]$'
@@ -376,6 +372,11 @@
         endfunction
 
         " inoremap <Tab> <C-R>=SuperCleverTab()<cr>
+    " }}}
+
+    " Supertab {{{
+        "let g:SuperTabDefaultCompletionType = "<C-X><C-O>" 
+        let g:SuperTabDefaultCompletionType = "context"
     " }}}
 
     " NerdTree {{{
@@ -401,9 +402,9 @@
 
     " Ctags {{{
         " This will look in the current directory for 'tags', and work up the tree towards root until one is found.
-            set tags=./tags;/,$HOME/vimtags
-            map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " C-\ - Open the definition in a new tab
-            map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " A-] - Open the definition in a vertical split
+            "set tags=./tags;/,$HOME/vimtags
+            "map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR> " C-\ - Open the definition in a new tab
+            "map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>      " A-] - Open the definition in a vertical split
     " }}}
 
     " Session {{{
