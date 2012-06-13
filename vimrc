@@ -98,9 +98,9 @@
     endfunction
     " }}} 
 
-    set tabstop=4                                               " spaces per tab
+    set tabstop=2                                               " spaces per tab
     set softtabstop=4
-    set shiftwidth=4                                            " spaces per indent
+    set shiftwidth=2                                            " spaces per indent
     set expandtab                                               " expand tabs to spaces
     set smarttab                                                " at start shiftwidth, else tabstop
     set autoindent                                              " indent new line to same as previous
@@ -116,9 +116,9 @@
     "au Filetype html,tex,text setlocal formatoptions+=wa
     au Filetype python setlocal formatoptions+=wa2
     au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
-    au Filetype python,coffee,jade,javascript setlocal list                    " show tabs and trailing spaces
-    au Filetype python,coffee,jade,javascript setlocal lcs=tab:├─              " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade,javascript setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    au Filetype python,coffee,jade,javascript,php setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade,javascript,php setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade,javascript,php setlocal lcs+=trail:␣            " Show trailing spaces as ␣
     au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
     au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
     let coffee_folding = 1 
@@ -464,6 +464,9 @@
 
     " Tagbar {{{
         nmap <F8> :TagbarToggle<CR> 
+    " }}}
+    " Vimroom {{{
+        let g:vimroom_sidebar_height = 0
     " }}}
 " }}}
 
