@@ -130,3 +130,6 @@
 [submodule "bundle-all/vimroom"]
 	path = bundle-all/vimroom
 	url = https://github.com/mikewest/vimroom.git
+[submodule "bundle-all/localvimrc"]
+	path = bundle-all/localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
