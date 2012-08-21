@@ -208,10 +208,10 @@
     nnoremap <leader>w <C-w>v<C-w>l                        " open new window in vertical split
 
     " Window resizing with arrow keys
-    nmap <C-Down> <C-W>-<C-W>-
-    nmap <C-Up> <C-W>+<C-W>+
-    nmap <C-right> <C-W>><C-W>>
-    nmap <C-left> <C-W><<C-W><
+    nmap <Down> <C-W>-<C-W>-
+    nmap <Up> <C-W>+<C-W>+
+    nmap <right> <C-W>><C-W>>
+    nmap <left> <C-W><<C-W><
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     nnoremap j gj
