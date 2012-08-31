@@ -101,24 +101,25 @@
     set tabstop=2                                               " spaces per tab
     set softtabstop=4
     set shiftwidth=2                                            " spaces per indent
-    set expandtab                                               " expand tabs to spaces
+    "set expandtab                                               " expand tabs to spaces
     set smarttab                                                " at start shiftwidth, else tabstop
     set autoindent                                              " indent new line to same as previous
     set smartindent                                             " indent on code type
     set nolist                                                  " disable list on most files
-    set foldenable  				" auto fold code
+    set foldenable          " auto fold code
     set gdefault
 
     """ control wrapping
-    "set linebreak                                                  " wraps without <eol>
+    set wrap
+    set linebreak                                                  " wraps without <eol>
     "au Filetype text setlocal textwidth=0                          " overide system vimrc
     "au Filetype python setlocal textwidth=78
     "au Filetype html,tex,text setlocal formatoptions+=wa
     au Filetype python setlocal formatoptions+=wa2
-    au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
-    au Filetype python,coffee,jade,javascript,php setlocal list                    " show tabs and trailing spaces
-    au Filetype python,coffee,jade,javascript,php setlocal lcs=tab:├─              " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade,javascript,php setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    "au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
+    "au Filetype python,coffee,jade,javascript,php setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade,javascript,php,html setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade,javascript,php,html setlocal lcs+=trail:␣            " Show trailing spaces as ␣
     au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
     au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
     let coffee_folding = 1 
@@ -227,17 +228,17 @@
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-	""" Code folding options
-	nmap <leader>f0 :set foldlevel=0<CR>
-	nmap <leader>f1 :set foldlevel=1<CR>
-	nmap <leader>f2 :set foldlevel=2<CR>
-	nmap <leader>f3 :set foldlevel=3<CR>
-	nmap <leader>f4 :set foldlevel=4<CR>
-	nmap <leader>f5 :set foldlevel=5<CR>
-	nmap <leader>f6 :set foldlevel=6<CR>
-	nmap <leader>f7 :set foldlevel=7<CR>
-	nmap <leader>f8 :set foldlevel=8<CR>
-	nmap <leader>f9 :set foldlevel=9<CR>
+  """ Code folding options
+  nmap <leader>f0 :set foldlevel=0<CR>
+  nmap <leader>f1 :set foldlevel=1<CR>
+  nmap <leader>f2 :set foldlevel=2<CR>
+  nmap <leader>f3 :set foldlevel=3<CR>
+  nmap <leader>f4 :set foldlevel=4<CR>
+  nmap <leader>f5 :set foldlevel=5<CR>
+  nmap <leader>f6 :set foldlevel=6<CR>
+  nmap <leader>f7 :set foldlevel=7<CR>
+  nmap <leader>f8 :set foldlevel=8<CR>
+  nmap <leader>f9 :set foldlevel=9<CR>
 
     "inoremap () ()<Left>
     "inoremap [] []<Left>
@@ -432,7 +433,7 @@
     " }}}
 
     " Vimwiki {{{
-        let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}]
+        let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown'}]
     " }}}
 
     " Vim Task {{{
@@ -460,13 +461,28 @@
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         let g:ctrlp_working_path_mode = 2
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*   " Linux/MacOSX
+        let g:ctrlp_root_markers = ['.ctrlp']
     " }}}
 
     " Tagbar {{{
         nmap <F8> :TagbarToggle<CR> 
     " }}}
+
     " Vimroom {{{
         let g:vimroom_sidebar_height = 0
+    " }}}
+
+    " LocalVIM {{{
+        "let g:localvimrc_ask = 0 
+    " }}}
+
+    " Syntastic {{{
+        let g:syntastic_auto_jump=1
+        let g:syntastic_auto_loc_list=1
+        let g:syntastic_phpcs_disable = 1
+        let g:syntastic_mode_map = { 'mode': 'active',
+                                   \ 'active_filetypes': [],
+                                   \ 'passive_filetypes': ['less'] }
     " }}}
 " }}}
 
@@ -475,4 +491,10 @@
     set printoptions=left:4pc,right:4pc,top:5pc,bottom:5pc
     set printfont=:h9
 
+" }}}
+
+" Local vimrc {{{
+  if filereadable(expand("$HOME/.vimrc.local"))
+    source $HOME/.vimrc.local
+  endif
 " }}}
