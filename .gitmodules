@@ -136,3 +136,6 @@
 [submodule "bundle-all/splice"]
 	path = bundle-all/splice
 	url = https://github.com/sjl/splice.vim.git
+[submodule "bundle-all/jade"]
+	path = bundle-all/jade
+	url = https://github.com/digitaltoad/vim-jade.git
