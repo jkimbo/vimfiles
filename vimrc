@@ -98,10 +98,10 @@
     endfunction
     " }}} 
 
-    set tabstop=2                                               " spaces per tab
+    set tabstop=4                                               " spaces per tab
     set softtabstop=4
-    set shiftwidth=2                                            " spaces per indent
-    "set expandtab                                               " expand tabs to spaces
+    set shiftwidth=4                                            " spaces per indent
+    set expandtab                                               " expand tabs to spaces
     set smarttab                                                " at start shiftwidth, else tabstop
     set autoindent                                              " indent new line to same as previous
     set smartindent                                             " indent on code type
@@ -135,6 +135,10 @@
     au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
 
     let g:tex_flavor='latex'                                    " use latex styles
+
+    " Highlight the 81st column 
+    set textwidth=80
+    set colorcolumn=+1
 
     "autocmd Filetype vimwiki,mkd :UniCycleOn                    " enable unicycle 
 
@@ -184,7 +188,7 @@
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,js,coffee setlocal foldignore="#"
-    au Filetype php,css,html,less,coffee setlocal nowrap
+    "au Filetype php,css,html,less,coffee setlocal nowrap
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
     autocmd BufNewFile,BufRead *.json set ft=javascript
     
@@ -278,9 +282,6 @@
     " auto reload vimrc
     "autocmd BufWritePost vimrc !source ~/vim/vimrc
 
-    " Allows you to edit files that are not in sudo by using w!!
-    cmap w!! w !sudo tee % >/dev/null
-
     " quick edit vimrc
     nmap <leader>v :e ~/vim/vimrc<CR>
 
@@ -330,7 +331,7 @@
     au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
     set completeopt=longest,menuone,menu,preview
 
-    set complete=.,k,w,b,u,t,i              " add dictionary completion
+    "set complete=.,k,w,b,u,t,i              " add dictionary completion
 
     "set omnifunc=syntaxcomplete#Complete
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
