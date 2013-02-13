@@ -46,6 +46,11 @@
     au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
     au FocusLost * :wa                  "autosave files on loosing focus
 
+    " Set working directory as the current directory
+    autocmd BufEnter * silent! lcd %:p:h
+    
+    "set autochdir
+
 " }}}
 
 " File Formats {{{
@@ -226,6 +231,8 @@
     cmap W w
     cmap WQ wq
     cmap wQ wq
+    cmap Xa xa
+    cmap xA xa
     cmap Q q
     cmap Tabe tabe
 
@@ -417,6 +424,7 @@
     " MiniBufExplorer {{{
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplUseSingleClick = 1
+        let g:miniBufExplorerMoreThanOne = 0
     " }}}
 
     " Yankring {{{
