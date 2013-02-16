@@ -14,12 +14,7 @@
 
     " Colour schemes {{{
         set background=dark
-        "colorscheme darkspectrum
         colorscheme solarized           " prefered colour scheme
-        "colorscheme mustang
-        "colorscheme TjlH_col
-        "colorscheme desert
-        "colorscheme elflord
     " }}}
 
     set showmode                    " display the current mode
@@ -44,7 +39,6 @@
 
     au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
     au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
-    au FocusLost * :wa                  "autosave files on loosing focus
 
 " }}}
 
@@ -58,7 +52,6 @@
 
     filetype plugin indent on                                   " enable file type check and indent
     syntax on                                                   " enable syntax highlighting
-    au BufRead,BufNewFile *.tsv silent! Delimiter \t            " set the tsv delimiter to a TAB
     "set t_Co=256
     let g:solarized_termcolors=256
 
@@ -79,34 +72,15 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif " }}}
 
-    function! WordCount() " {{{ doesn't work! :(
-        let s:old_status = v:statusmsg
-        exe "silent normal g\<c-g>"
-        try 
-            if mode()=~#"^[vV\<C-v>]" 
-                let s:word_count = str2nr(split(v:statusmsg)[5]) 
-                "let s:word_count = str2nr(matchlist(v:statusmsg, '\([0-9]\+\)\sof\s[0-9]\+\sWords')[1])
-            else
-                let s:word_count = str2nr(split(v:statusmsg)[11]) 
-                "let s:word_count = str2nr(matchlist(v:statusmsg, 'Word\s[0-9]\+\sof\s\([0-9]\+\)')[1])
-            endif 
-        catch 
-           let s:word_count = 0 
-        endtry
-        let v:statusmsg = s:old_status
-        return s:word_count
-    endfunction
-    " }}} 
-
-    set tabstop=2                                               " spaces per tab
+    set tabstop=4                                               " spaces per tab
     set softtabstop=4
-    set shiftwidth=2                                            " spaces per indent
+    set shiftwidth=4                                            " spaces per indent
     set expandtab                                               " expand tabs to spaces
     set smarttab                                                " at start shiftwidth, else tabstop
     set autoindent                                              " indent new line to same as previous
     set smartindent                                             " indent on code type
     set nolist                                                  " disable list on most files
-    set foldenable  				" auto fold code
+    set foldenable  				                            " auto fold code
     set gdefault
 
     """ control wrapping
@@ -116,9 +90,9 @@
     "au Filetype html,tex,text setlocal formatoptions+=wa
     au Filetype python setlocal formatoptions+=wa2
     au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
-    au Filetype python,coffee,jade,javascript,php setlocal list                    " show tabs and trailing spaces
-    au Filetype python,coffee,jade,javascript,php setlocal lcs=tab:├─              " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade,javascript,php setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
     au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
     au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
     let coffee_folding = 1 
@@ -126,26 +100,49 @@
     au BufRead,BufNewFile *.txt setfiletype text
     au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
     au BufRead,BufNewFile *.prb setfiletype tex
-    au BufRead,BufNewFile */AI/*/*.pl setlocal filetype=prolog
     au BufNewFile,BufRead *.less set filetype=less              " less syntax
     au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
     au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
     au BufNewFile,BufRead *.styl set filetype=stylus            " stylus syntax
     au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
+    au BufRead,BufNewFile *.twig set filetype=html              " twig
+
+    " PHP {{{
+        au Filetype php setlocal wrap                           " wrap lines in PHP
+        au Filetype php setlocal foldcolumn=2
+        au Filetype php setlocal foldmethod=indent
+        au Filetype php setlocal foldlevel=0
+        au Filetype php setlocal foldlevelstart=2
+        au Filetype php setlocal foldminlines=1
+        au Filetype php setlocal foldnestmax=20
+        au Filetype php setlocal list                           " show tabs and trailing spaces
+        au Filetype php setlocal lcs=tab:├─                     " Tabs are shown as ├──├──
+        au Filetype php setlocal lcs+=trail:␣                   " Show trailing spaces as ␣
+        au Filetype php setlocal spell
+    " }}}
+    
+    " JS {{{
+        au Filetype javascript setlocal wrap                    " wrap lines in javascript
+        au Filetype javascript setlocal foldcolumn=2
+        au Filetype javascript setlocal foldmethod=indent
+        au Filetype javascript setlocal foldlevel=0
+        au Filetype javascript setlocal foldlevelstart=2
+        au Filetype javascript setlocal foldminlines=1
+        au Filetype javascript setlocal foldnestmax=20
+        au Filetype javascript setlocal list                    " show tabs and trailing spaces
+        au Filetype javascript setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+        au Filetype javascript setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+        au Filetype javascript setlocal spell
+    " }}}
 
     let g:tex_flavor='latex'                                    " use latex styles
-
-    "autocmd Filetype vimwiki,mkd :UniCycleOn                    " enable unicycle 
-
-    " Remove trailing whitespaces and ^M chars
-    "autocmd FileType c,cpp,java,php,js,python,twig,xml,yml,html autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " }}}
 
 " VIM UI {{{
 
     set ruler                                                   " always display cursor position
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)          " a ruler on steroids
     set backspace=indent,eol,start                              " backspace for dummys
 
     set incsearch                                               " search as type
@@ -172,18 +169,18 @@
     """ Folding
     set foldcolumn=2                                            " set width of folding column (appears on left side of ruler)
 
-    au Filetype c,cpp,css,less,coffee,html,js,php,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
+    au Filetype c,cpp,css,less,coffee,html,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
     au Filetype prolog setlocal foldcolumn=3
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-    au Filetype c,cpp,css,less,html,js,javascript,coffee,php,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=20
+    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
+    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
+    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
+    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
+    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=20
     au Filetype vim setlocal foldmethod=marker
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
-    au Filetype c,cpp,js,coffee setlocal foldignore="#"
-    au Filetype php,css,html,less,coffee setlocal nowrap
+    au Filetype c,cpp,coffee setlocal foldignore="#"
+    "au Filetype php,css,html,less,coffee setlocal nowrap
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
     autocmd BufNewFile,BufRead *.json set ft=javascript
     
@@ -312,14 +309,14 @@
     " set spell                     " enable spell check
     " au BufRead *.use,*.conf,*.cfg,*/conf.d/*,*.log,.vimrc set nospell
 
-    au Filetype c,css,html,javascript,php,tex,text,mkd,wiki,vimwiki setlocal spell
+    au Filetype c,css,html,tex,text,mkd,wiki,vimwiki setlocal spell
     au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell " git commit messages
     au Filetype help setlocal nospell
     au StdinReadPost * setlocal nospell         " but not in man
 
     set spelllang=en_gb                         " spell check language to GB
 
-    set dictionary+=/usr/share/dict/words       " add standard words
+    "set dictionary+=/usr/share/dict/words       " add standard words
     
 " }}}
 
@@ -329,7 +326,7 @@
     au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
     set completeopt=longest,menuone,menu,preview
 
-    set complete=.,k,w,b,u,t,i              " add dictionary completion
+    "set complete=.,k,w,b,u,t,i              " add dictionary completion
 
     "set omnifunc=syntaxcomplete#Complete
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -465,6 +462,7 @@
     " Tagbar {{{
         nmap <F8> :TagbarToggle<CR> 
     " }}}
+
     " Vimroom {{{
         let g:vimroom_sidebar_height = 0
     " }}}
