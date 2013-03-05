@@ -29,6 +29,9 @@
     set pastetoggle=<F3>            " disables smart indenting when pasting from outside the terminal
     set undofile
 
+    set exrc            " enable per-directory .vimrc files
+    set secure          " disable unsafe commands in local .vimrc files
+
     " Setup Bundle Support {{{
     " The next two lines ensure that the ~/.vim/bundle/ system works
         filetype off
