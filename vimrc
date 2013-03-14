@@ -24,6 +24,9 @@
     set pastetoggle=<F3>            " disables smart indenting when pasting from outside the terminal
     set undofile
 
+    set exrc            " enable per-directory .vimrc files
+    set secure          " disable unsafe commands in local .vimrc files
+
     " Setup Bundle Support {{{
     " The next two lines ensure that the ~/.vim/bundle/ system works
         filetype off
@@ -39,6 +42,11 @@
 
     au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
     au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
+
+    " Set working directory as the current directory
+    autocmd BufEnter * silent! lcd %:p:h
+    
+    "set autochdir
 
 " }}}
 
@@ -84,7 +92,8 @@
     set gdefault
 
     """ control wrapping
-    "set linebreak                                                  " wraps without <eol>
+    set wrap
+    set linebreak                                                  " wraps without <eol>
     "au Filetype text setlocal textwidth=0                          " overide system vimrc
     "au Filetype python setlocal textwidth=78
     "au Filetype html,tex,text setlocal formatoptions+=wa
@@ -137,6 +146,10 @@
 
     let g:tex_flavor='latex'                                    " use latex styles
 
+    " Highlight the 81st column 
+    set textwidth=80
+    set colorcolumn=+1
+
 " }}}
 
 " VIM UI {{{
@@ -180,7 +193,6 @@
     au Filetype vimwiki setlocal foldmarker={,}
     au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,coffee setlocal foldignore="#"
-    "au Filetype php,css,html,less,coffee setlocal nowrap
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
     autocmd BufNewFile,BufRead *.json set ft=javascript
     
@@ -218,23 +230,25 @@
     cmap W w
     cmap WQ wq
     cmap wQ wq
+    cmap Xa xa
+    cmap xA xa
     cmap Q q
     cmap Tabe tabe
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
-	""" Code folding options
-	nmap <leader>f0 :set foldlevel=0<CR>
-	nmap <leader>f1 :set foldlevel=1<CR>
-	nmap <leader>f2 :set foldlevel=2<CR>
-	nmap <leader>f3 :set foldlevel=3<CR>
-	nmap <leader>f4 :set foldlevel=4<CR>
-	nmap <leader>f5 :set foldlevel=5<CR>
-	nmap <leader>f6 :set foldlevel=6<CR>
-	nmap <leader>f7 :set foldlevel=7<CR>
-	nmap <leader>f8 :set foldlevel=8<CR>
-	nmap <leader>f9 :set foldlevel=9<CR>
+    """ Code folding options
+    nmap <leader>f0 :set foldlevel=0<CR>
+    nmap <leader>f1 :set foldlevel=1<CR>
+    nmap <leader>f2 :set foldlevel=2<CR>
+    nmap <leader>f3 :set foldlevel=3<CR>
+    nmap <leader>f4 :set foldlevel=4<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f6 :set foldlevel=6<CR>
+    nmap <leader>f7 :set foldlevel=7<CR>
+    nmap <leader>f8 :set foldlevel=8<CR>
+    nmap <leader>f9 :set foldlevel=9<CR>
 
     "inoremap () ()<Left>
     "inoremap [] []<Left>
@@ -273,9 +287,6 @@
 
     " auto reload vimrc
     "autocmd BufWritePost vimrc !source ~/vim/vimrc
-
-    " Allows you to edit files that are not in sudo by using w!!
-    cmap w!! w !sudo tee % >/dev/null
 
     " quick edit vimrc
     nmap <leader>v :e ~/vim/vimrc<CR>
@@ -412,6 +423,7 @@
     " MiniBufExplorer {{{
         let g:miniBufExplMapCTabSwitchBufs = 1
         let g:miniBufExplUseSingleClick = 1
+        let g:miniBufExplorerMoreThanOne = 0
     " }}}
 
     " Yankring {{{
@@ -429,7 +441,7 @@
     " }}}
 
     " Vimwiki {{{
-        let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/'}]
+        let g:vimwiki_list = [{'path': '~/Dropbox/Wiki/', 'syntax': 'markdown'}]
     " }}}
 
     " Vim Task {{{
@@ -457,6 +469,7 @@
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         let g:ctrlp_working_path_mode = 2
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*   " Linux/MacOSX
+        let g:ctrlp_root_markers = ['.ctrlp']
     " }}}
 
     " Tagbar {{{
@@ -466,6 +479,15 @@
     " Vimroom {{{
         let g:vimroom_sidebar_height = 0
     " }}}
+
+    " Syntastic {{{
+        let g:syntastic_auto_jump=1
+        let g:syntastic_auto_loc_list=1
+        let g:syntastic_phpcs_disable = 1
+        let g:syntastic_mode_map = { 'mode': 'active',
+                                   \ 'active_filetypes': [],
+                                   \ 'passive_filetypes': ['less'] }
+    " }}}
 " }}}
 
 " Printing {{{
@@ -473,4 +495,10 @@
     set printoptions=left:4pc,right:4pc,top:5pc,bottom:5pc
     set printfont=:h9
 
+" }}}
+
+" Local vimrc {{{
+  if filereadable(expand("$HOME/.vimrc.local"))
+    source $HOME/.vimrc.local
+  endif
 " }}}
