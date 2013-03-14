@@ -133,3 +133,6 @@
 [submodule "bundle-all/localvimrc"]
 	path = bundle-all/localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+[submodule "bundle-all/syntastic"]
+	path = bundle-all/syntastic
+	url = https://github.com/scrooloose/syntastic.git
