@@ -139,3 +139,6 @@
 [submodule "bundle-all/jade"]
 	path = bundle-all/jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "bundle-all/ycm"]
+	path = bundle-all/ycm
+	url = https://github.com/Valloric/YouCompleteMe.git
