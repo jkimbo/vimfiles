@@ -145,3 +145,6 @@
 [submodule "bundle-all/tern"]
 	path = bundle-all/tern
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule "bundle-all/handlebars"]
+	path = bundle-all/handlebars
+	url = git://github.com/nono/vim-handlebars.git
