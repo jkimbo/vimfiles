@@ -486,7 +486,7 @@
         let g:syntastic_phpcs_disable = 1
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
-                                   \ 'passive_filetypes': ['less'] }
+                                   \ 'passive_filetypes': ['less', 'phtml', 'html'] }
     " }}}
 " }}}
 
