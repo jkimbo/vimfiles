@@ -488,6 +488,32 @@
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
     " }}}
+
+    " Neocomplcache {{{
+        " Use neocomplcache.
+        let g:neocomplcache_enable_at_startup = 1
+        
+        " Use smartcase.
+        let g:neocomplcache_enable_smart_case = 1
+
+        " <TAB>: completion.
+        "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+        inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+        
+        " <CR>: close popup and save indent.
+        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+        function! s:my_cr_function()
+            "return neocomplcache#smart_close_popup() . "\<CR>"
+            " For no inserting <CR> key.
+            return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+        endfunction
+
+        " Enable heavy omni completion.
+        if !exists('g:neocomplcache_omni_patterns')
+            let g:neocomplcache_omni_patterns = {}
+        endif
+        let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    " }}}
 " }}}
 
 " Printing {{{
