@@ -19,9 +19,6 @@
 [submodule "bundle-all/ruby"]
 	path = bundle-all/ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "bundle-all/yankring"]
-	path = bundle-all/yankring
-	url = https://github.com/chrismetcalf/vim-yankring.git
 [submodule "bundle-all/mustache"]
 	path = bundle-all/mustache
 	url = git://github.com/juvenn/mustache.vim.git
