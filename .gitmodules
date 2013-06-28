@@ -148,3 +148,6 @@
 [submodule "bundle-all/neosnippet"]
 	path = bundle-all/neosnippet
 	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundle-all/yankring"]
+	path = bundle-all/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
