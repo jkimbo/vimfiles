@@ -151,3 +151,6 @@
 [submodule "bundle-all/yankring"]
 	path = bundle-all/yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "bundle-all/sass"]
+	path = bundle-all/sass
+	url = https://github.com/cakebaker/scss-syntax.vim.git
