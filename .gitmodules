@@ -151,3 +151,6 @@
 [submodule "bundle-all/sass"]
 	path = bundle-all/sass
 	url = https://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle-all/jade"]
+	path = bundle-all/jade
+	url = https://github.com/digitaltoad/vim-jade.git
