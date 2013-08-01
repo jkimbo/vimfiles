@@ -157,3 +157,6 @@
 [submodule "bundle-all/jinja"]
 	path = bundle-all/jinja
 	url = https://github.com/lepture/vim-jinja.git
+[submodule "bundle-all/snippets"]
+	path = bundle-all/snippets
+	url = git@github.com:jkimbo/vim-snippets.git
