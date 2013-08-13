@@ -393,7 +393,7 @@
         nmap <leader>nt :NERDTreeFind<CR>
 
         let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.orig']
         "let NERDTreeChDirMode=0
         "let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=1
@@ -468,7 +468,7 @@
         nnoremap <leader>t :CtrlP<CR> 
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         let g:ctrlp_working_path_mode = 2
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*   " Linux/MacOSX
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
     " }}}
 
