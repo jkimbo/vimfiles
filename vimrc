@@ -308,10 +308,14 @@
 
     " On ubuntu (running Vim in gnome-terminal)
     " The reason for the double-command on <C-c> is due to some weirdness with the X clipboard system.
-    nnoremap <C-c> "+y
-    vnoremap <C-c> "+y
-    nnoremap <C-v> "+gP
-    vnoremap <C-v> "+gP
+    "nnoremap <C-c> "+y
+    "vnoremap <C-c> "+y
+    "nnoremap <C-v> "+gP
+    "vnoremap <C-v> "+gP
+    nnoremap <C-c> :.w !reattach-to-user-namespace pbcopy<CR><CR>
+    vnoremap <C-c> :.w !reattach-to-user-namespace pbcopy<CR><CR>
+    nnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
+    vnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
 
 " }}}
 
@@ -450,7 +454,8 @@
     " }}}
 
     " Ack {{{
-        let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+        "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+        let g:ackprg = 'ag --nogroup --nocolor --column'
         nnoremap <leader>a :Ack 
     " }}}
 
@@ -468,7 +473,7 @@
         nnoremap <leader>t :CtrlP<CR> 
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         let g:ctrlp_working_path_mode = 2
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig   " Linux/MacOSX
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
     " }}}
 
