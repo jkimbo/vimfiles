@@ -160,6 +160,3 @@
 [submodule "bundle-all/snippets"]
 	path = bundle-all/snippets
 	url = git@github.com:jkimbo/vim-snippets.git
-[submodule "bundle-all/gitgutter"]
-	path = bundle-all/gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
