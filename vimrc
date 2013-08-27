@@ -541,6 +541,11 @@
         " Tell Neosnippet about the other snippets
         let g:neosnippet#snippets_directory='~/.vim/bundle-all/snippets/snippets'
     " }}}
+
+    " Gitgutter {{{
+        let g:gitgutter_sign_column_always = 1
+        let g:gitgutter_sign_added = '✛'
+    " }}}
 " }}}
 
 " Printing {{{
