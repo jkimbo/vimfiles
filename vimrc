@@ -313,7 +313,7 @@
     "nnoremap <C-v> "+gP
     "vnoremap <C-v> "+gP
     nnoremap <C-c> :.w !reattach-to-user-namespace pbcopy<CR><CR>
-    vnoremap <C-c> :.w !reattach-to-user-namespace pbcopy<CR><CR>
+    vnoremap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
     nnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
     vnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
 
