@@ -160,3 +160,6 @@
 [submodule "bundle-all/snippets"]
 	path = bundle-all/snippets
 	url = git@github.com:jkimbo/vim-snippets.git
+[submodule "bundle-all/ctrlp-funky"]
+	path = bundle-all/ctrlp-funky
+	url = https://github.com/tacahiroy/ctrlp-funky.git
