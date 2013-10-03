@@ -97,7 +97,7 @@
     "au Filetype text setlocal textwidth=0                          " overide system vimrc
     "au Filetype python setlocal textwidth=78
     "au Filetype html,tex,text setlocal formatoptions+=wa
-    au Filetype python setlocal formatoptions+=wa2
+    "au Filetype python setlocal formatoptions+=wa2
     au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
     au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
     au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
@@ -308,14 +308,10 @@
 
     " On ubuntu (running Vim in gnome-terminal)
     " The reason for the double-command on <C-c> is due to some weirdness with the X clipboard system.
-    "nnoremap <C-c> "+y
-    "vnoremap <C-c> "+y
-    "nnoremap <C-v> "+gP
-    "vnoremap <C-v> "+gP
-    nnoremap <C-c> :.w !reattach-to-user-namespace pbcopy<CR><CR>
-    vnoremap <C-c> :w !reattach-to-user-namespace pbcopy<CR><CR>
-    nnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
-    vnoremap <C-v> :r !reattach-to-user-namespace pbpaste<CR>
+    nnoremap <C-c> "*y
+    vnoremap <C-c> "*y
+    nnoremap <C-v> "*gP
+    vnoremap <C-v> "*gP
 
 " }}}
 
@@ -433,7 +429,7 @@
     " Yankring {{{
         "nnoremap <silent> <F6> :YRRefresh<CR>:YRShow<CR>
         nnoremap <silent> <F6> :YRShow<CR>
-        "let g:yankring_clipboard_monitor = 1
+        let g:yankring_clipboard_monitor = 1
     " }}}
 
     " Sparkup {{{
@@ -476,6 +472,7 @@
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
         let g:ctrlp_extensions = ['funky']
+        let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
     " }}}
 
     " Ctrlp funky {{{
@@ -499,7 +496,7 @@
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
-        let g:syntastic_python_checkers=['python', 'pyflakes']
+        let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
     " }}}
 
     " Neocomplcache {{{
