@@ -2,30 +2,29 @@
     " File: vimrc
     " Author: Jonathan Kim
     " Description: My personal vim file
-    " Last Modified: September 20, 2011
 " }}}
 
 " General settings {{{
 
-    set nocompatible                    " not VI compatible
-    set vb t_vb=                        " disable bell
-    set history=500                     " lines of history to remember
-    set mouse=a                         " always enable mouse input
+    set nocompatible                            " not VI compatible
+    set vb t_vb=                                " disable bell
+    set history=500                             " lines of history to remember
+    set mouse=a                                 " always enable mouse input
 
     " Colour schemes {{{
         set background=dark
-        colorscheme solarized           " prefered colour scheme
+        colorscheme solarized                   " prefered colour scheme
     " }}}
 
-    set showmode                    " display the current mode
-    set hidden                      " hides buffers instead of closing them
-    set nobackup                    " no backup
-    set noswapfile                  " no swapfile
-    set pastetoggle=<F3>            " disables smart indenting when pasting from outside the terminal
+    set showmode                                " display the current mode
+    set hidden                                  " hides buffers instead of closing them
+    set nobackup                                " no backup
+    set noswapfile                              " no swapfile
+    set pastetoggle=<F3>                        " disables smart indenting when pasting from outside the terminal
     set undofile
 
-    set exrc            " enable per-directory .vimrc files
-    set secure          " disable unsafe commands in local .vimrc files
+    set exrc                                    " enable per-directory .vimrc files
+    set secure                                  " disable unsafe commands in local .vimrc files
 
     " Setup Bundle Support {{{
     " The next two lines ensure that the ~/.vim/bundle/ system works
@@ -40,11 +39,11 @@
     
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 
-    au BufWinLeave * silent! mkview     "make vim save view (state) (folds, cursor, etc)
-    au BufWinEnter * silent! loadview   "make vim load view (state) (folds, cursor, etc)
+    au BufWinLeave * silent! mkview             " make vim save view (state) (folds, cursor, etc)
+    au BufWinEnter * silent! loadview           " make vim load view (state) (folds, cursor, etc)
 
     " Set working directory as the current directory
-    autocmd BufEnter * silent! lcd %:p:h
+    "autocmd BufEnter * silent! lcd %:p:h
     
     "set autochdir
 
@@ -214,7 +213,8 @@
     map <C-l> <C-W>l
     map gw <C-W>
     map gW <C-W>
-    nnoremap <leader>w <C-w>v<C-w>l                        " open new window in vertical split
+    nnoremap <leader>w<CR> <C-w>v<C-w>l                        " open new window in vertical split
+    nnoremap <leader>h<CR> <C-w>s<C-w>j                        " open new window in horizontal split
 
     " Window resizing with arrow keys
     nmap <Down> <C-W>-<C-W>-
@@ -468,7 +468,8 @@
     " Ctrlp {{{
         nnoremap <leader>t :CtrlP<CR> 
         nnoremap <leader><space> :CtrlPBuffer<CR> 
-        let g:ctrlp_working_path_mode = 2
+        "let g:ctrlp_working_path_mode = 2
+        let g:ctrlp_working_path_mode = 'r'
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
         let g:ctrlp_extensions = ['funky']
