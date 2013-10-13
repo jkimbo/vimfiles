@@ -169,6 +169,3 @@
 [submodule "bundle-all/signature"]
 	path = bundle-all/signature
 	url = https://github.com/kshenoy/vim-signature.git
-[submodule "bundle-all/jedi-vim"]
-	path = bundle-all/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
