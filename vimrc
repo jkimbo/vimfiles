@@ -342,7 +342,8 @@
     "set omnifunc=syntaxcomplete#Complete
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
     autocmd FileType less set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
+    "autocmd FileType python set omnifunc=pythoncomplete#Complete
+	autocmd FileType python setlocal omnifunc=jedi#complete
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -520,7 +521,15 @@
         if !exists('g:neocomplcache_omni_patterns')
             let g:neocomplcache_omni_patterns = {}
         endif
+        if !exists('g:neocomplcache_force_omni_patterns')
+          let g:neocomplcache_force_omni_patterns = {}
+        endif
         let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+        let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
+    " }}}
+    
+    " Jedi Vim {{{
+	    let g:jedi#auto_vim_configuration = 0
     " }}}
     
     " Neosnippet {{{
