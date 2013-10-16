@@ -421,9 +421,6 @@
     " }}}
 
     " MiniBufExplorer {{{
-        let g:miniBufExplMapCTabSwitchBufs = 1
-        let g:miniBufExplUseSingleClick = 1
-        let g:miniBufExplorerMoreThanOne = 0
     " }}}
 
     " Yankring {{{
