@@ -172,3 +172,6 @@
 [submodule "bundle-all/jedi-vim"]
 	path = bundle-all/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "bundle-all/CmdlineComplete"]
+	path = bundle-all/CmdlineComplete
+	url = https://github.com/vim-scripts/CmdlineComplete.git

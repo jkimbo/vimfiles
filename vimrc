@@ -422,6 +422,7 @@
     " }}}
 
     " MiniBufExplorer {{{
+        let g:miniBufExplorerMoreThanOne = 0
     " }}}
 
     " Yankring {{{
