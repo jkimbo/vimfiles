@@ -114,6 +114,8 @@
     au BufNewFile,BufRead *.styl set filetype=stylus            " stylus syntax
     au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
     au BufRead,BufNewFile *.twig set filetype=html              " twig
+    au BufRead,BufNewFile *.jsx set filetype=jsx                " jsx
+    au BufRead,BufNewFile *.jsx set syntax=javascript           " jsx
 
     " PHP {{{
         au Filetype php setlocal wrap                           " wrap lines in PHP
@@ -342,8 +344,7 @@
     "set omnifunc=syntaxcomplete#Complete
     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
     autocmd FileType less set omnifunc=csscomplete#CompleteCSS
-    "autocmd FileType python set omnifunc=pythoncomplete#Complete
-	autocmd FileType python setlocal omnifunc=jedi#complete
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType coffee set omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -492,11 +493,14 @@
     " Syntastic {{{
         "let g:syntastic_auto_jump=1
         let g:syntastic_auto_loc_list=1
-        "let g:syntastic_phpcs_disable = 1
+        let g:syntastic_loc_list_height=5
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
         let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
+        let g:syntastic_scss_checkers=['sass', 'scss_lint']
+        let g:syntastic_scss_scss_lint_args="--exclude-linter Indentation,SortedProperties"
+        let g:syntastic_php_checkers=['php']
     " }}}
 
     " Neocomplcache {{{
@@ -505,6 +509,8 @@
         
         " Use smartcase.
         let g:neocomplcache_enable_smart_case = 1
+
+        set completeopt-=preview
 
         " <TAB>: completion.
         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -526,11 +532,9 @@
           let g:neocomplcache_force_omni_patterns = {}
         endif
         let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
     " }}}
     
     " Jedi Vim {{{
-	    let g:jedi#auto_vim_configuration = 0
     " }}}
     
     " Neosnippet {{{

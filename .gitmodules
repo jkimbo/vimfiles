@@ -175,3 +175,6 @@
 [submodule "bundle-all/CmdlineComplete"]
 	path = bundle-all/CmdlineComplete
 	url = https://github.com/vim-scripts/CmdlineComplete.git
+[submodule "bundle-all/jsx"]
+	path = bundle-all/jsx
+	url = https://github.com/mxw/vim-jsx.git
