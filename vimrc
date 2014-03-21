@@ -93,29 +93,46 @@
     """ control wrapping
     set wrap
     set linebreak                                                  " wraps without <eol>
+
+    """ Folding
+    set foldcolumn=2                                            " set width of folding column (appears on left side of ruler)
+
     "au Filetype text setlocal textwidth=0                          " overide system vimrc
     "au Filetype python setlocal textwidth=78
     "au Filetype html,tex,text setlocal formatoptions+=wa
     "au Filetype python setlocal formatoptions+=wa2
-    au Filetype python,coffee,jade setlocal expandtab               " expand tabs to spaces
-    au Filetype python,coffee,jade setlocal list                    " show tabs and trailing spaces
-    au Filetype python,coffee,jade setlocal lcs=tab:├─              " Tabs are shown as ├──├──
-    au Filetype python,coffee,jade setlocal lcs+=trail:␣            " Show trailing spaces as ␣
-    au Filetype vimwiki,mkd setlocal wrap                           " Set wrappining on markdown and vimwiki files 
-    au Filetype vimwiki,mkd setlocal linebreak                      " Wrap on linebreak 
+    au Filetype python,coffee,jade  setlocal expandtab               " expand tabs to spaces
+    au Filetype python,coffee,jade  setlocal list                    " show tabs and trailing spaces
+    au Filetype python,coffee,jade  setlocal lcs=tab:├─              " Tabs are shown as ├──├──
+    au Filetype python,coffee,jade  setlocal lcs+=trail:␣            " Show trailing spaces as ␣
+    au Filetype vimwiki,mkd         setlocal wrap                           " Set wrappining on markdown and vimwiki files 
+    au Filetype vimwiki,mkd         setlocal linebreak                      " Wrap on linebreak 
     let coffee_folding = 1 
 
-    au BufRead,BufNewFile *.txt setfiletype text
-    au BufRead,BufNewFile *.csv,*.tsv setfiletype csv           " allow for ?sv file editing
-    au BufRead,BufNewFile *.prb setfiletype tex
-    au BufNewFile,BufRead *.less set filetype=less              " less syntax
-    au BufNewFile,BufRead *.tpl set filetype=smarty.html        " smarty syntax
-    au BufNewFile,BufRead *.coffee set filetype=coffee          " coffee syntax
-    au BufNewFile,BufRead *.styl set filetype=stylus            " stylus syntax
-    au BufNewFile,BufRead gitconfig set filetype=gitconfig      " gitconfig syntax
-    au BufRead,BufNewFile *.twig set filetype=html              " twig
-    au BufRead,BufNewFile *.jsx set filetype=jsx                " jsx
-    au BufRead,BufNewFile *.jsx set syntax=javascript           " jsx
+    au BufRead,BufNewFile *.txt         setfiletype text
+    au BufRead,BufNewFile *.csv,*.tsv   setfiletype csv           " allow for ?sv file editing
+    au BufRead,BufNewFile *.prb         setfiletype tex
+    au BufRead,BufNewFile *.less        setlocal filetype=less              " less syntax
+    au BufRead,BufNewFile *.tpl         setlocal filetype=smarty.html        " smarty syntax
+    au BufRead,BufNewFile *.coffee      setlocal filetype=coffee          " coffee syntax
+    au BufRead,BufNewFile *.styl        setlocal filetype=stylus            " stylus syntax
+    au BufRead,BufNewFile gitconfig     setlocal filetype=gitconfig      " gitconfig syntax
+    au BufRead,BufNewFile *.twig        setlocal filetype=html              " twig
+    au BufRead,BufNewFile *.jsx         setlocal filetype=jsx                " jsx
+    au BufRead,BufNewFile *.jsx         setlocal syntax=javascript           " jsx
+
+    au Filetype c,cpp,css,less,coffee,html,jinja,sh,verilog,vhdl,xml setlocal foldcolumn=2
+    au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldmethod=indent
+    au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldlevel=0
+    au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldlevelstart=2
+    au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldminlines=1
+    au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldnestmax=20
+    au Filetype vim setlocal foldmethod=marker
+    au Filetype vimwiki setlocal foldmarker={,}
+    au Filetype vimwiki setlocal foldmethod=marker
+    au Filetype c,cpp,coffee setlocal foldignore="#"
+    "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
+    autocmd BufNewFile,BufRead *.json set ft=javascript
 
     " PHP {{{
         au Filetype php setlocal wrap                           " wrap lines in PHP
@@ -143,6 +160,43 @@
         au Filetype javascript setlocal lcs=tab:├─              " Tabs are shown as ├──├──
         au Filetype javascript setlocal lcs+=trail:␣            " Show trailing spaces as ␣
         au Filetype javascript setlocal spell
+    " }}}
+
+    " JSX {{{
+        au Filetype jsx setlocal wrap                           " wrap lines in javascript
+        au Filetype jsx setlocal list                           " show tabs and trailing spaces
+        au Filetype jsx setlocal lcs=tab:├─                     " Tabs are shown as ├──├──
+        au Filetype jsx setlocal lcs+=trail:␣                   " Show trailing spaces as ␣
+        au Filetype jsx setlocal spell
+        au FileType jsx setlocal shiftwidth=2
+    " }}}
+
+    " Python {{{
+        au Filetype python setlocal wrap
+        au Filetype python setlocal foldcolumn=2
+        au Filetype python setlocal foldmethod=indent
+        au Filetype python setlocal foldlevel=0
+        au Filetype python setlocal foldlevelstart=2
+        au Filetype python setlocal foldminlines=1
+        au Filetype python setlocal foldnestmax=20
+        au Filetype python setlocal list                           " show tabs and trailing spaces
+        au Filetype python setlocal lcs=tab:├─                     " Tabs are shown as ├──├──
+        au Filetype python setlocal lcs+=trail:␣                   " Show trailing spaces as ␣
+        au Filetype python setlocal spell
+    " }}}
+
+    " SCSS {{{
+        au Filetype scss setlocal wrap
+        au Filetype scss setlocal foldcolumn=2
+        au Filetype scss setlocal foldmethod=indent
+        au Filetype scss setlocal foldlevel=0
+        au Filetype scss setlocal foldlevelstart=2
+        au Filetype scss setlocal foldminlines=1
+        au Filetype scss setlocal foldnestmax=20
+        au Filetype scss setlocal list                           " show tabs and trailing spaces
+        au Filetype scss setlocal lcs=tab:├─                     " Tabs are shown as ├──├──
+        au Filetype scss setlocal lcs+=trail:␣                   " Show trailing spaces as ␣
+        au Filetype scss setlocal spell
     " }}}
 
     let g:tex_flavor='latex'                                    " use latex styles
@@ -179,24 +233,6 @@
 
     """ map <Space> to :noh and clear messages
     nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-    """ Folding
-    set foldcolumn=2                                            " set width of folding column (appears on left side of ruler)
-
-    au Filetype c,cpp,css,less,coffee,html,python,sh,verilog,vhdl,xml setlocal foldcolumn=2
-    au Filetype prolog setlocal foldcolumn=3
-    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldmethod=indent
-    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldlevel=0
-    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldlevelstart=2
-    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldminlines=1
-    au Filetype c,cpp,css,less,html,coffee,prolog,python,sh,verilog,vhdl,xml setlocal foldnestmax=20
-    au Filetype vim setlocal foldmethod=marker
-    au Filetype vimwiki setlocal foldmarker={,}
-    au Filetype vimwiki setlocal foldmethod=marker
-    au Filetype c,cpp,coffee setlocal foldignore="#"
-    "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
-    autocmd BufNewFile,BufRead *.json set ft=javascript
-    
 " }}}
 
 " Key (re)Mappings {{{
@@ -315,6 +351,9 @@
     nnoremap <C-v> "*gP
     vnoremap <C-v> "*gP
 
+    " Regenerate tags
+    noremap <Leader>T :!ctags-proj.sh<CR>
+
 " }}}
 
 " Spelling {{{
@@ -353,13 +392,13 @@
     runtime ftplugin/pdf.vim                " PDF plugin
 
     """ ctags config
+    set tags+=~/.vim/tags
     "au BufWritePost c,cpp,*.h !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
     "noremap mtl :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
     "setlocal tags=tags,.tags,./tags;/,~/.vim/tags
     "au Filetype cpp set tags+=~/.vim/tags/cpp
     "au BufRead,BufNew */msp430/*/*.c setlocal tags+=~/.vim/tags/msp430
     "au BufRead,BufNew */avr/*/*/*/*.c setlocal tags+=~/.vim/tags/avr
-    "set tags+=~/.vim/tags/gl
     "set tags+=~/.vim/tags/sdl
     "au Filetype cpp set tags+=~/.vim/tags/qt4
     "set tags+=~/.vim/tags/gtk-2
@@ -470,10 +509,10 @@
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         "let g:ctrlp_working_path_mode = 2
         let g:ctrlp_working_path_mode = 'r'
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc   " Linux/MacOSX
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc,*/vendor/*   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
         let g:ctrlp_extensions = ['funky']
-        let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+        "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
     " }}}
 
     " Ctrlp funky {{{
@@ -501,6 +540,8 @@
         let g:syntastic_scss_checkers=['sass', 'scss_lint']
         let g:syntastic_scss_scss_lint_args="--exclude-linter Indentation,SortedProperties"
         let g:syntastic_php_checkers=['php']
+        let g:syntastic_javascript_checkers=['jshint', 'jscs']
+        let g:syntastic_jsx_checkers=['jsxhint', 'jscs']
     " }}}
 
     " Neocomplcache {{{
@@ -556,11 +597,6 @@
 
         " Tell Neosnippet about the other snippets
         let g:neosnippet#snippets_directory='~/.vim/bundle-all/snippets/snippets'
-    " }}}
-
-    " Gitgutter {{{
-        let g:gitgutter_sign_column_always = 1
-        let g:gitgutter_sign_added = '✛'
     " }}}
 " }}}
 

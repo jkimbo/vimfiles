@@ -178,3 +178,9 @@
 [submodule "bundle-all/jsx"]
 	path = bundle-all/jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "bundle-all/easytags"]
+	path = bundle-all/easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "bundle-all/misc"]
+	path = bundle-all/misc
+	url = https://github.com/xolox/vim-misc.git
