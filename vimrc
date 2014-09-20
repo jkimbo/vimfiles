@@ -351,6 +351,9 @@
     nnoremap <C-v> "*gP
     vnoremap <C-v> "*gP
 
+    " Copy to system clipboard
+    vnoremap <leader>y "*y
+
     " Regenerate tags
     noremap <Leader>T :!ctags-proj.sh<CR>
 
@@ -490,7 +493,7 @@
 
     " Ack {{{
         "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-        let g:ackprg = 'ag --nogroup --nocolor --column'
+        "let g:ackprg = 'ag --nogroup --nocolor --column'
         nnoremap <leader>a :Ack 
     " }}}
 
@@ -509,7 +512,7 @@
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         "let g:ctrlp_working_path_mode = 2
         let g:ctrlp_working_path_mode = 'r'
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc,*/vendor/*   " Linux/MacOSX
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc,*/vendor/*,*/build/*   " Linux/MacOSX
         let g:ctrlp_root_markers = ['.ctrlp']
         let g:ctrlp_extensions = ['funky']
         "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
