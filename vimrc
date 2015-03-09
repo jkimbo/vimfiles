@@ -599,6 +599,10 @@
         " Tell Neosnippet about the other snippets
         let g:neosnippet#snippets_directory='~/.vim/bundle-all/snippets/snippets'
     " }}}
+
+    " Vim JSX {{{
+        let g:jsx_pragma_required = 0
+    " }}}
 " }}}
 
 " Printing {{{
