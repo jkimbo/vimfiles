@@ -533,6 +533,7 @@
         "let g:syntastic_auto_jump=1
         let g:syntastic_auto_loc_list=1
         let g:syntastic_loc_list_height=5
+        let g:syntastic_aggregate_errors = 1
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
@@ -540,8 +541,8 @@
         let g:syntastic_scss_checkers=['sass', 'scss_lint']
         let g:syntastic_scss_scss_lint_args="--exclude-linter Indentation,SortedProperties"
         let g:syntastic_php_checkers=['php']
-        let g:syntastic_javascript_checkers=['jshint', 'jscs']
-        let g:syntastic_jsx_checkers=['jsxhint', 'jscs']
+        let g:syntastic_javascript_checkers=['jsxhint', 'jscs']
+        let g:syntastic_jsx_checkers=['jsxhint', 'jsxcs']
     " }}}
 
     " Neocomplcache {{{
