@@ -265,9 +265,6 @@
     nnoremap k gk
 
     " Stupid shift key fixes
-    cmap W w
-    cmap WQ wq
-    cmap wQ wq
     cmap Xa xa
     cmap xA xa
     cmap Q q
