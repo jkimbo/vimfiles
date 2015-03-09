@@ -490,7 +490,7 @@
 
     " Ack {{{
         "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-        "let g:ackprg = 'ag --nogroup --nocolor --column'
+        let g:ackprg = 'ag --nogroup --nocolor --column'
         nnoremap <leader>a :Ack 
     " }}}
 
