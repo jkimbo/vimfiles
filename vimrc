@@ -120,6 +120,7 @@
     au BufRead,BufNewFile *.twig        setlocal filetype=html              " twig
     au BufRead,BufNewFile *.jsx         setlocal filetype=jsx                " jsx
     au BufRead,BufNewFile *.jsx         setlocal syntax=javascript           " jsx
+    au BufRead,BufNewFile *.json        setlocal syntax=json
 
     au Filetype c,cpp,css,less,coffee,html,jinja,sh,verilog,vhdl,xml setlocal foldcolumn=2
     au Filetype c,cpp,css,less,html,jinja,coffee,prolog,sh,verilog,vhdl,xml setlocal foldmethod=indent
@@ -132,7 +133,7 @@
     au Filetype vimwiki setlocal foldmethod=marker
     au Filetype c,cpp,coffee setlocal foldignore="#"
     "au Filetype python,sh,js,css,html,xml,php,vhdl,verilog set foldignore="#"
-    autocmd BufNewFile,BufRead *.json set ft=javascript
+    "autocmd BufNewFile,BufRead *.json set ft=javascript
 
     " PHP {{{
         au Filetype php setlocal wrap                           " wrap lines in PHP
@@ -434,7 +435,7 @@
         nmap <leader>nt :NERDTreeFind<CR>
 
         let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.orig']
+        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.orig', '\.DS_Store$']
         "let NERDTreeChDirMode=0
         "let NERDTreeQuitOnOpen=1
         let NERDTreeShowHidden=1
@@ -539,10 +540,10 @@
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
         let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
         let g:syntastic_scss_checkers=['sass', 'scss_lint']
-        let g:syntastic_scss_scss_lint_args="--exclude-linter Indentation,SortedProperties"
         let g:syntastic_php_checkers=['php']
-        let g:syntastic_javascript_checkers=['jsxhint', 'jscs']
-        let g:syntastic_jsx_checkers=['jsxhint', 'jsxcs']
+        let g:syntastic_javascript_checkers=['eslint', 'jsxcs'] "'jsxhint', 'jscs']
+        "let g:syntastic_jsx_checkers=['jsxhint', 'jsxcs']
+        let g:syntastic_jsx_checkers=['eslint', 'jsxcs']
     " }}}
 
     " Neocomplcache {{{
@@ -602,6 +603,16 @@
 
     " Vim JSX {{{
         let g:jsx_pragma_required = 0
+    " }}}
+
+    " Jedi Vim {{{
+        let g:jedi#use_tabs_not_buffers = 0
+        let g:jedi#use_splits_not_buffers = "bottom"
+        let g:jedi#show_call_signatures = "2"
+        let g:jedi#popup_on_dot = 0
+        let g:jedi#popup_select_first = 0
+
+        autocmd FileType python setlocal completeopt-=preview
     " }}}
 " }}}
 
