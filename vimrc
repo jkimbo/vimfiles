@@ -268,7 +268,7 @@
     " Stupid shift key fixes
     cmap Xa xa
     cmap xA xa
-    cmap Q q
+    "cmap Q q
     cmap Tabe tabe
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
@@ -543,7 +543,7 @@
         let g:syntastic_php_checkers=['php']
         let g:syntastic_javascript_checkers=['eslint', 'jsxcs'] "'jsxhint', 'jscs']
         "let g:syntastic_jsx_checkers=['jsxhint', 'jsxcs']
-        let g:syntastic_jsx_checkers=['eslint', 'jsxcs']
+        let g:syntastic_jsx_checkers=['eslint'] ", 'jsxcs']
     " }}}
 
     " Neocomplcache {{{
@@ -587,12 +587,12 @@
         xmap <C-k>     <Plug>(neosnippet_expand_target)
 
         " SuperTab like snippets behavior.
-        "imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            "\ "\<Plug>(neosnippet_expand_or_jump)"
-            "\: pumvisible() ? "\<C-n>" : "\<TAB>"
-        "smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            "\ "\<Plug>(neosnippet_expand_or_jump)"
-            "\: "\<TAB>"
+        imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+        smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
 
         " Enable snipMate compatibility feature.
         let g:neosnippet#enable_snipmate_compatibility = 1
