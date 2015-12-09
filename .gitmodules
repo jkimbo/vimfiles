@@ -193,3 +193,6 @@
 [submodule "bundle-all/bracketed-paste"]
 	path = bundle-all/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule "bundle-all/quick-scope"]
+	path = bundle-all/quick-scope
+	url = https://github.com/unblevable/quick-scope.git

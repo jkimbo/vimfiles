@@ -510,8 +510,8 @@
         nnoremap <leader><space> :CtrlPBuffer<CR> 
         "let g:ctrlp_working_path_mode = 2
         let g:ctrlp_working_path_mode = 'r'
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc,*/vendor/*,*/build/*   " Linux/MacOSX
-        let g:ctrlp_root_markers = ['.ctrlp']
+        set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.un~,*/node_modules/*,*.orig,*.pyc,*/vendor/*,*/build/*,*/coverage/*,*/htmlcov/*   " Linux/MacOSX
+        let g:ctrlp_root_markers = ['.ctrlp', 'package.json']
         let g:ctrlp_extensions = ['funky']
         "let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
     " }}}
@@ -538,12 +538,14 @@
         let g:syntastic_mode_map = { 'mode': 'active',
                                    \ 'active_filetypes': [],
                                    \ 'passive_filetypes': ['less', 'phtml', 'html'] }
-        let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
+        let g:syntastic_python_checkers=['python', 'flake8']
         let g:syntastic_scss_checkers=['sass', 'scss_lint']
         let g:syntastic_php_checkers=['php']
         let g:syntastic_javascript_checkers=['eslint', 'jsxcs'] "'jsxhint', 'jscs']
+        let g:syntastic_javascript_eslint_exec = 'eslint_d'
         "let g:syntastic_jsx_checkers=['jsxhint', 'jsxcs']
         let g:syntastic_jsx_checkers=['eslint'] ", 'jsxcs']
+        let g:syntastic_jsx_eslint_exec = 'eslint_d'
     " }}}
 
     " Neocomplcache {{{
@@ -612,7 +614,7 @@
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
 
-        autocmd FileType python setlocal completeopt-=preview
+        "autocmd FileType python setlocal completeopt-=preview
     " }}}
 " }}}
 
