@@ -196,3 +196,6 @@
 [submodule "bundle-all/quick-scope"]
 	path = bundle-all/quick-scope
 	url = https://github.com/unblevable/quick-scope.git
+[submodule "bundle-all/editorconfig"]
+	path = bundle-all/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git

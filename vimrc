@@ -616,6 +616,11 @@
 
         "autocmd FileType python setlocal completeopt-=preview
     " }}}
+
+    " Editor config {{{
+        let g:EditorConfig_core_mode = 'python_external'
+        let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+    " }}}
 " }}}
 
 " Printing {{{
