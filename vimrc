@@ -408,27 +408,6 @@
 
 " Plugin configuration {{{
 
-    " Maps auto-completion to <Tab>, else inputs Tab. {{{
-        function! SuperCleverTab()
-            if strpart(getline("."), 0, col(".")-1) =~ '^\s*$\|^.*\s$\|^.*[,;)}\]]$'
-                return "\<Tab>"
-            else
-                if &omnifunc != ''
-                    return "\<C-X>\<C-O>"
-                else
-                    return "\<C-N>"
-                endir
-            endif
-        endfunction
-
-        " inoremap <Tab> <C-R>=SuperCleverTab()<cr>
-    " }}}
-
-    " Supertab {{{
-        "let g:SuperTabDefaultCompletionType = "<C-X><C-O>" 
-        let g:SuperTabDefaultCompletionType = "context"
-    " }}}
-
     " NerdTree {{{
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -560,6 +539,7 @@
         " <TAB>: completion.
         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
         "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+        inoremap <expr><s-tab> pumvisible()?"\<c-p>":"\<c-d>"
         
         " <CR>: close popup and save indent.
         inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
