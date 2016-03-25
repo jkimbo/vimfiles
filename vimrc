@@ -559,9 +559,6 @@
         let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
     " }}}
     
-    " Jedi Vim {{{
-    " }}}
-    
     " Neosnippet {{{
         " Plugin key-mappings.
         imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -569,12 +566,12 @@
         xmap <C-k>     <Plug>(neosnippet_expand_target)
 
         " SuperTab like snippets behavior.
-        imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-        smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
+        "imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: pumvisible() ? "\<C-n>" : "\<TAB>"
+        "smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: "\<TAB>"
 
         " Enable snipMate compatibility feature.
         let g:neosnippet#enable_snipmate_compatibility = 1
@@ -594,7 +591,7 @@
         let g:jedi#popup_on_dot = 0
         let g:jedi#popup_select_first = 0
 
-        "autocmd FileType python setlocal completeopt-=preview
+        autocmd FileType python setlocal completeopt-=preview
     " }}}
 
     " Editor config {{{
